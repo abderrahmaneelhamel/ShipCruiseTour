@@ -31,8 +31,6 @@ if(isset($_GET['page'])){
         $home->login();
     }elseif($_GET['page']==="addNew"){
         $home->addNew();
-    }elseif($_GET['page']==="addReservation"){
-        $home->addNewR();
     }elseif($_GET['page']==="addShip"){
         $home->addNewS();
     }elseif($_GET['page']==="addPort"){

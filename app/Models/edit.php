@@ -12,8 +12,8 @@ class edit {
         $resultat = mysqli_query($conn,$sql);
         return $resultat;
     }
-    function editR($cruise,$price,$dateOfReservation,$ID){
-        $sql ="UPDATE `reservation` SET `cruise`='$cruise',`reservation-date`='$dateOfReservation',`reservation-price`='$price' WHERE `id`= $ID";
+    function editR($price,$dateOfReservation,$room,$ID){
+        $sql ="UPDATE `reservation` SET `reservation-date`='$dateOfReservation',`reservation-price`='$price',`room`='$room' WHERE `id`= $ID";
         $test = new connection;
         $conn = $test->connection();
         $resultat = mysqli_query($conn,$sql);
@@ -47,10 +47,10 @@ class edit {
         $resultat = mysqli_query($conn,$sql);
         return $resultat;
     }
-    function listR1(){
+    function listR1($ID){
         $test = new connection;
         $conn = $test->connection();
-        $sql="SELECT * FROM `clients`";
+        $sql="SELECT * FROM `clients`  WHERE `id` =$ID LIMIT 1";
         $resultat1 = mysqli_query($conn,$sql);
         return $resultat1;
     }

@@ -51,18 +51,6 @@ class addNewController {
             }
         }
     }
-    function addRController(){
-        if (isset($_POST['submit'])) {
-            $costumer = isset($_POST["costumer"]) ? $_POST["costumer"] : null;
-            $price = isset($_POST["price"]) ? $_POST["price"] : null;
-            $cruise = isset($_POST["cruise"]) ? $_POST["cruise"] : null;
-            $dateOfReservation = isset($_POST["dateOfReservation"]) ? $_POST["dateOfReservation"] : null;
-            $room = isset($_POST["room"]) ? $_POST["room"] : null;
-            
-            $add = new addNew;
-            $add->addNewR($costumer,$cruise,$price,$dateOfReservation,$room);
-        }
-    }
     function addSController(){
         if (isset($_POST['submit'])) {
             $name = isset($_POST["name"]) ? $_POST["name"] : null;

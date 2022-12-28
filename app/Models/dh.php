@@ -45,7 +45,23 @@ class dh {
     function stc4(){
         $test = new connection;
         $conn = $test->connection();
-        $sql = "SELECT COUNT(*) FROM `cruises` WHERE `date-of-departure` between '2022/12/01' and '2022/12/31'";
+        $date0 = date("Y-m")."-01";
+        $date1 = date("Y-m")."-31";
+        $sql = "SELECT COUNT(*) FROM `cruises` WHERE `date-of-departure` between '$date0' and '$date1'";
+        $resultat = mysqli_query($conn,$sql);
+        return $resultat;
+    }
+    function stc5(){
+        $test = new connection;
+        $conn = $test->connection();
+        $sql = "SELECT COUNT(*) FROM `clients` WHERE `role` = 'client'";
+        $resultat = mysqli_query($conn,$sql);
+        return $resultat;
+    }
+    function stc6($id){
+        $test = new connection;
+        $conn = $test->connection();
+        $sql = "SELECT * FROM `ship` WHERE id =$id";
         $resultat = mysqli_query($conn,$sql);
         return $resultat;
     }

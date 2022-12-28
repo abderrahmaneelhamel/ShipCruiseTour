@@ -73,25 +73,25 @@
                         <div class="row">
                             <div data-aos="fade-right" class="col-md-6 col-sm-6">
                                 <div class="service-item">
-                                    <img src="../app/View/assets/images/service-item-01.png" alt="">
+                                    <img src="../app/View/assets/images/luxury.png" alt="">
                                     <h4>Comfort</h4>
                                 </div>
                             </div>
                             <div data-aos="fade-right" class="col-md-6 col-sm-6">
                                 <div class="service-item">
-                                    <img src="../app/View/assets/images/service-item-01.png" alt="">
+                                    <img src="../app/View/assets/images/luxury.png" alt="">
                                     <h4>Luxury</h4>
                                 </div>
                             </div>
                             <div data-aos="fade-right" class="col-md-6 col-sm-6">
                                 <div class="service-item">
-                                    <img src="../app/View/assets/images/contact-info-03.png" alt="">
+                                    <img src="../app/View/assets/images/luxury.png" alt="">
                                     <h4>Safty</h4>
                                 </div>
                             </div>
                             <div data-aos="fade-right" class="col-md-6 col-sm-6">
                                 <div class="service-item">
-                                    <img src="../app/View/assets/images/contact-info-03.png" alt="">
+                                    <img src="../app/View/assets/images/luxury.png" alt="">
                                     <h4>Delicios Food</h4>
                                 </div>
                             </div>
@@ -119,7 +119,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
                     <div data-aos="fade-up" class="features-item">
                         <div class="features-icon">
-                            <img src="../app/View/assets/images/features-icon-1.png" alt="">
+                            <img src="../app/View/assets/images/luxury.png" alt="">
                         </div>
                         <div class="features-content">
                             <h4>Best Chefs</h4>
@@ -133,7 +133,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter bottom move 30px over 0.6s after 0.4s">
                     <div data-aos="fade-up" class="features-item">
                         <div class="features-icon">
-                            <img src="../app/View/assets/images/features-icon-1.png" alt="">
+                            <img src="../app/View/assets/images/luxury.png" alt="">
                         </div>
                         <div class="features-content">
                             <h4>Luxury suits</h4>
@@ -147,7 +147,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
                     <div data-aos="fade-up" class="features-item">
                         <div class="features-icon">
-                            <img src="../app/View/assets/images/features-icon-1.png" alt="">
+                            <img src="../app/View/assets/images/luxury.png" alt="">
                         </div>
                         <div class="features-content">
                             <h4>Smooth Sealing</h4>

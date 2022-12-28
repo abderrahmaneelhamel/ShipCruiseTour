@@ -40,8 +40,7 @@
 </ul>
 </div>
 <div>
-    <a href="addReservation" class="btn btn-outline-primary mb-3">Add RESERVATION</a>
-    
+<br>    
 </div>
 <table class="table table-light table-striped table-hover text-center">
   <thead class="table-light">

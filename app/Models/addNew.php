@@ -13,16 +13,6 @@ class addNew {
         }
 
     }
-    function addNewR($costumer,$cruise,$price,$dateOfReservation,$room){
-
-        $test = new connection;
-        $conn = $test->connection();
-        $sql = "INSERT INTO `reservation` (`costumer`, `cruise`, `reservation-date`, `reservation-price` , `room`) VALUES ('$costumer','$cruise','$dateOfReservation','$price','$room')";
-        $resultat = mysqli_query($conn,$sql);
-        if($resultat){
-            header("Location:reservation");
-        }
-    }
     function book($costumer,$cruise,$price,$dateOfReservation,$room){
 
         $test = new connection;

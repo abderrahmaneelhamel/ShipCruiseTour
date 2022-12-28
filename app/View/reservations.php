@@ -46,6 +46,7 @@
       <th scope="col">RESERVATION PRICE</th>
       <th scope="col">RESERVATION DATE</th>
       <th scope="col">ROOM TYPE</th>
+      <th scope="col">DOWNLOAD TECKET</th>
       
     </tr>
   </thead>
@@ -62,6 +63,27 @@
       <td><?php echo $row['reservation-price'] ?></td>
       <td><?php echo $row['reservation-date'] ?></td>
       <td><?php echo $row['label'] ?></td>
+      <td>
+        <?php
+         $myfile = fopen("../app/View/uploads/ticket".$row['id'].".txt", "w") or die("Unable to open file!");
+         $txt = "************************ YOUR TICKET ****************************\n";
+         fwrite($myfile, $txt);
+         $txt = "*name : ".$row['firstName']."\n";
+         fwrite($myfile, $txt);
+         $txt = "*cruise : ".$row['cruise']."\n";
+         fwrite($myfile, $txt);
+         $txt = "*price : ".$row['reservation-price']."\n";
+         fwrite($myfile, $txt);
+         $txt = "*reservation date : ".$row['reservation-date']."\n";
+         fwrite($myfile, $txt);
+         $txt = "*room type : ".$row['label']."\n";
+         fwrite($myfile, $txt);
+         $txt = "*****************************************************************\n";
+         fwrite($myfile, $txt);
+         fclose($myfile);
+        ?>
+        <a href='../app/View/uploads/ticket<?php echo $row["id"]?>.txt' download="ticket"><button class="btn btn-outline-success m-1">Download</button></a>
+      </td>
     </tr>
 <?php
    }

@@ -37,24 +37,9 @@
         <div class="container d-flex justify-content-center">
             <form method="post" style="width:50vw; min-width:300px ;" enctype="multipart/form-data">
             <div class="row">
-                    <div class="row">
-                        <label class="log" style="color:rgb(10 82 189);">costumer</label>
-                        <select class="form-control" name="costumer" id="costumer" onChange="getSubCat(this.value);" required="">
-                            <option value="">Select costumer </option>
-                            <?php
-                            foreach ($resultat1->fetch_all(MYSQLI_ASSOC) as $row1) {
-                            ?>
-                                <option value="<?php echo $row1['id']; ?>"> <?php echo $row1['firstName']; ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                    <div class="row">
-                        <label class="log" style="color:rgb(10 82 189);">reservation Price</label>
-                        <input type="text" class="form-control" name="price" placeholder="reservation Price" value="<?php echo $row['reservation-price'] ?>">
-                    </div>
-                    <div class="row">
+                    <div class="row" style="display:none">
                         <label class="log" style="color:rgb(10 82 189);">cruise</label>
-                        <select class="form-control" name="cruise" id="cruise" onChange="getSubCat(this.value);" required="">
+                        <select class="form-control" name="cruise" id="cruise" onChange="getSubCat(this.value);">
                             <option value="">Select cruise </option>
                             <?php
                             foreach ($resultat2->fetch_all(MYSQLI_ASSOC) as $row2) {
@@ -63,9 +48,24 @@
                             <?php } ?>
                         </select>
                     </div>
+                    <div class="row" style="display:none">
+                        <label class="log" style="color:rgb(10 82 189);">reservation Price</label>
+                        <input type="text" class="form-control" name="price" placeholder="reservation Price" value="<?php echo $row2['price'] ?>">
+                    </div>
                     <div class="row">
                         <label class="log" style="color:rgb(10 82 189);">date of reservation</label>
                         <input type="date" class="form-control" name="dateOfReservation" value="<?php echo $row['reservation-date'] ?>">
+                    </div>
+                    <div class="row">
+                        <label class="log" style="color:rgb(10 82 189);">costumer</label>
+                        <select class="form-control" name="room" id="room" onChange="getSubCat(this.value);" required="">
+                            <option value="">Select room type </option>
+                            <?php
+                            foreach ($resultat3->fetch_all(MYSQLI_ASSOC) as $row3) {
+                            ?>
+                                <option value="<?php echo $row3['id']; ?>"> <?php echo $row3['label']; ?></option>
+                            <?php } ?>
+                        </select>
                     </div>
                 </div>
                 <div class="col ret">

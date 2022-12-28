@@ -97,12 +97,21 @@ class HomeController{
             header("location: login");
         }
         require("../app/Models/dh.php");
+        if(isset($_POST['submit'])){
+            $id = $_POST['cruise'];
+        }else{
+            $id = 1;
+        }
         $test = new dh;
         $resultat1 = $test->stc();
         $resultat2 = $test->stc1();
         $resultat3 = $test->stc2();
         $resultat4 = $test->stc3();
         $resultat5 = $test->stc4();
+        $resultat6 = $test->stc5();
+        $resultat7 = $test->stc6($id);
+        $list = new edit;
+        $resultat8=$list->listR2();
         include('../app/View/dachBoard.php');
     }
     public function dhR(){
@@ -126,14 +135,10 @@ class HomeController{
         if($_SESSION['user']==null){
             header("location: login");
         }
-        require("addNewController.php");
-        $list = new edit;
-        $resultat1=$list->listR1();
-        $resultat2=$list->listR2();
-        $resultat3=$list->listR3();
+        require("bookingController.php");
         require("../app/View/booking.php");
-        $test = new addNewController;
-        $test->addRController();
+        $test = new bookingController;
+        $test->booking();
     }
     public function addNew(){
         if($_SESSION['admin']==null){
@@ -146,19 +151,6 @@ class HomeController{
         require("../app/View/addNew.php");
         $test = new addNewController;
         $test->addNewController();
-    }
-    public function addNewR(){
-        if($_SESSION['admin']==null){
-            header("location: login");
-        }
-        require("addNewController.php");
-        $list = new edit;
-        $resultat1=$list->listR1();
-        $resultat2=$list->listR2();
-        $resultat3=$list->listR3();
-        require("../app/View/addReservation.php");
-        $test = new addNewController;
-        $test->addRController();
     }
     public function addNewS(){
         if($_SESSION['admin']==null){
@@ -198,8 +190,8 @@ class HomeController{
         require("editController.php");
         $list = new edit;
         $resultat=$list->listR($ID);
-        $resultat1=$list->listR1();
         $resultat2=$list->listR2();
+        $resultat3=$list->listR3();
         require("../app/View/editpageR.php");
         $test = new editController;
         $test->editRController($ID);

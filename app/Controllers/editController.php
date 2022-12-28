@@ -65,10 +65,35 @@ class editController {
   function editRController($ID){
     if (isset($_POST['submit'])) {
         $price = isset($_POST["price"]) ? $_POST["price"] : null;
-        $cruise = isset($_POST["cruise"]) ? $_POST["cruise"] : null;
         $dateOfReservation = isset($_POST["dateOfReservation"]) ? $_POST["dateOfReservation"] : null;
+        if(isset($_POST["room"])){
+          $room = $_POST["room"];
+          switch($room){
+              case 1 :
+                  $price += 0;
+                  break;
+
+              case 2 :
+                  $price += 100;
+                  break;
+                  
+              case 3 :
+                  $price += 200;
+                  break;
+
+              case 4 :
+                  $price += 300;
+                  break;
+
+              default :
+                  $price +=0;
+                  break; 
+          }
+      }else{
+          $room = null;
+      }
         $edit = new edit;
-        $resultat=$edit->editR($cruise,$price,$dateOfReservation,$ID);
+        $resultat=$edit->editR($price,$dateOfReservation,$room,$ID);
         if ($resultat) {
           header("Location:reservation");
         }
