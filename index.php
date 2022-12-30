@@ -1,7 +1,7 @@
 <?php
 if(isset($_GET['page'])){
-    header("location: public/login");
+    header("location: public/home");
 }else{
-    header("location: public/login");
+    header("location: public/home");
 }
 ?>

@@ -1,0 +1,7 @@
+************************ YOUR TICKET ****************************
+*name : Harkati
+*cruise : 1
+*price : 400
+*reservation date : 2022-12-30
+*room type : room for 2 personnes 
+*****************************************************************

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 19 déc. 2022 à 11:58
+-- Généré le : ven. 30 déc. 2022 à 17:02
 -- Version du serveur : 10.4.25-MariaDB
 -- Version de PHP : 8.1.10
 
@@ -24,25 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `admin`
---
-
-CREATE TABLE `admin` (
-  `id` int(11) NOT NULL,
-  `email` varchar(40) NOT NULL,
-  `password` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `admin`
---
-
-INSERT INTO `admin` (`id`, `email`, `password`) VALUES
-(1, 'admin@gmail.com', 'admin');
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `category`
 --
 
@@ -58,7 +39,8 @@ CREATE TABLE `category` (
 INSERT INTO `category` (`id`, `label`) VALUES
 (1, 'solo room'),
 (2, 'room for 2 personnes '),
-(3, 'family room');
+(3, 'family room'),
+(4, 'Suite');
 
 -- --------------------------------------------------------
 
@@ -80,8 +62,10 @@ CREATE TABLE `clients` (
 --
 
 INSERT INTO `clients` (`id`, `fullName`, `firstName`, `email`, `password`, `role`) VALUES
-(1, 'abderrahmane elhamel', 'abderrahmane', 'abderrahmane@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', 'client'),
-(2, 'abdo el', 'abdo', 'abdo@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', 'client');
+(1, 'admin', 'admin', 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 'admin'),
+(2, 'abderrahmane elhamel', 'abderrahmane', 'abderrahmane@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', 'client'),
+(3, 'abdo el', 'abdo', 'abdo@gmail.com', '1a1dc91c907325c69271ddf0c944bc72', 'client'),
+(10, 'Aziz', 'Harkati', 'aziz@gmail.com', '25d55ad283aa400af464c76d713c07ad', 'client');
 
 -- --------------------------------------------------------
 
@@ -91,11 +75,11 @@ INSERT INTO `clients` (`id`, `fullName`, `firstName`, `email`, `password`, `role
 
 CREATE TABLE `cruises` (
   `id-cruise` int(100) NOT NULL,
-  `ship` varchar(100) NOT NULL,
+  `ship` int(100) NOT NULL,
   `price` int(11) NOT NULL,
   `img` varchar(1000) NOT NULL,
   `num-of-nights` int(100) NOT NULL,
-  `port-of-departure` varchar(100) NOT NULL,
+  `port-of-departure` int(100) NOT NULL,
   `cruise-itinerary` varchar(500) NOT NULL,
   `date-of-departure` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -105,7 +89,37 @@ CREATE TABLE `cruises` (
 --
 
 INSERT INTO `cruises` (`id-cruise`, `ship`, `price`, `img`, `num-of-nights`, `port-of-departure`, `cruise-itinerary`, `date-of-departure`) VALUES
-(1, 'titanic', 300, '', 5, 'tanger', 'tanger-gibraltar-palma-malta', '2022-12-26');
+(1, 1, 300, 'uploads/cruise1.jpg', 5, 1, 'tanger-gibraltar-palma', '2022-12-31'),
+(2, 2, 150, 'uploads/ship3.jpg', 6, 3, 'Piraeus-Venice-tanger', '2022-12-31'),
+(3, 3, 250, 'uploads/ship6.jpg', 4, 2, 'NewYork-tanger-Venice', '2023-01-01'),
+(4, 4, 300, 'uploads/ship8.jpg', 7, 4, 'Piraeus-tanger-newYork', '2023-01-02');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `itinarary`
+--
+
+CREATE TABLE `itinarary` (
+  `id` int(11) NOT NULL,
+  `cruise` int(100) NOT NULL,
+  `port` int(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `itinarary`
+--
+
+INSERT INTO `itinarary` (`id`, `cruise`, `port`) VALUES
+(1, 2, 4),
+(2, 2, 3),
+(3, 2, 1),
+(4, 3, 2),
+(5, 3, 1),
+(6, 4, 4),
+(7, 4, 1),
+(8, 4, 2),
+(9, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -115,7 +129,7 @@ INSERT INTO `cruises` (`id-cruise`, `ship`, `price`, `img`, `num-of-nights`, `po
 
 CREATE TABLE `port` (
   `id` int(11) NOT NULL,
-  `name` varchar(40) NOT NULL,
+  `port` varchar(40) NOT NULL,
   `country` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -123,8 +137,11 @@ CREATE TABLE `port` (
 -- Déchargement des données de la table `port`
 --
 
-INSERT INTO `port` (`id`, `name`, `country`) VALUES
-(1, 'tanger', 'morocco');
+INSERT INTO `port` (`id`, `port`, `country`) VALUES
+(1, 'tanger', 'morocco'),
+(2, 'newYork', 'USA'),
+(3, 'Venice', 'italy'),
+(4, 'Piraeus', 'greece');
 
 -- --------------------------------------------------------
 
@@ -134,18 +151,24 @@ INSERT INTO `port` (`id`, `name`, `country`) VALUES
 
 CREATE TABLE `reservation` (
   `id` int(11) NOT NULL,
-  `costumer` varchar(40) NOT NULL,
-  `cruise` varchar(40) NOT NULL,
+  `costumer` int(100) NOT NULL,
+  `cruise` int(11) NOT NULL,
   `reservation-date` date NOT NULL,
-  `reservation-price` int(11) NOT NULL
+  `reservation-price` int(11) NOT NULL,
+  `room` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `reservation`
 --
 
-INSERT INTO `reservation` (`id`, `costumer`, `cruise`, `reservation-date`, `reservation-price`) VALUES
-(1, 'abderrahmane', '1', '2022-12-23', 300);
+INSERT INTO `reservation` (`id`, `costumer`, `cruise`, `reservation-date`, `reservation-price`, `room`) VALUES
+(14, 2, 1, '2022-12-30', 300, 1),
+(17, 2, 3, '2022-12-30', 450, 3),
+(19, 10, 1, '2022-12-30', 400, 2),
+(21, 3, 4, '2022-12-30', 500, 3),
+(22, 3, 3, '2022-12-30', 550, 4),
+(23, 3, 2, '2022-12-30', 250, 2);
 
 -- --------------------------------------------------------
 
@@ -155,8 +178,7 @@ INSERT INTO `reservation` (`id`, `costumer`, `cruise`, `reservation-date`, `rese
 
 CREATE TABLE `rooms` (
   `id` int(11) NOT NULL,
-  `ship` varchar(40) NOT NULL,
-  `room-num` int(11) NOT NULL,
+  `ship` int(100) NOT NULL,
   `room-type` int(100) NOT NULL,
   `price` int(11) NOT NULL,
   `capacity` int(11) NOT NULL
@@ -166,8 +188,38 @@ CREATE TABLE `rooms` (
 -- Déchargement des données de la table `rooms`
 --
 
-INSERT INTO `rooms` (`id`, `ship`, `room-num`, `room-type`, `price`, `capacity`) VALUES
-(1, 'titanic', 4, 1, 200, 1);
+INSERT INTO `rooms` (`id`, `ship`, `room-type`, `price`, `capacity`) VALUES
+(1, 1, 1, 200, 1),
+(2, 2, 3, 450, 6),
+(3, 4, 1, 300, 1),
+(4, 2, 2, 300, 2),
+(5, 4, 3, 500, 6),
+(7, 3, 1, 200, 1),
+(8, 2, 2, 250, 2),
+(9, 2, 3, 350, 6),
+(10, 1, 3, 500, 6),
+(11, 1, 3, 500, 6),
+(12, 1, 3, 500, 6),
+(13, 1, 1, 300, 1),
+(14, 1, 2, 400, 2),
+(15, 1, 2, 400, 2),
+(16, 1, 1, 300, 1),
+(17, 3, 3, 450, 6),
+(18, 1, 1, 300, 1),
+(19, 1, 1, 300, 1),
+(20, 1, 1, 300, 1),
+(21, 1, 1, 300, 1),
+(22, 1, 1, 300, 1),
+(23, 1, 1, 300, 1),
+(24, 1, 1, 300, 1),
+(25, 1, 1, 300, 1),
+(26, 3, 3, 450, 6),
+(27, 1, 1, 300, 1),
+(28, 1, 2, 400, 2),
+(29, 1, 2, 400, 2),
+(30, 4, 3, 500, 6),
+(31, 3, 4, 550, 2),
+(32, 2, 2, 250, 2);
 
 -- --------------------------------------------------------
 
@@ -187,17 +239,14 @@ CREATE TABLE `ship` (
 --
 
 INSERT INTO `ship` (`id`, `name`, `num-of-rooms`, `num-of-places`) VALUES
-(1, 'titanic', 5, 10);
+(1, 'titanic', 5, 3),
+(2, 'Wonder of the Sea', 5, 2),
+(3, 'White Mansion', 10, 8),
+(4, 'grand Sailor', 15, 6);
 
 --
 -- Index pour les tables déchargées
 --
-
---
--- Index pour la table `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `category`
@@ -216,7 +265,17 @@ ALTER TABLE `clients`
 -- Index pour la table `cruises`
 --
 ALTER TABLE `cruises`
-  ADD PRIMARY KEY (`id-cruise`);
+  ADD PRIMARY KEY (`id-cruise`),
+  ADD KEY `ship` (`ship`),
+  ADD KEY `port` (`port-of-departure`);
+
+--
+-- Index pour la table `itinarary`
+--
+ALTER TABLE `itinarary`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `cruise` (`cruise`),
+  ADD KEY `port` (`port`);
 
 --
 -- Index pour la table `port`
@@ -228,14 +287,18 @@ ALTER TABLE `port`
 -- Index pour la table `reservation`
 --
 ALTER TABLE `reservation`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `custumer` (`costumer`),
+  ADD KEY `cruise` (`cruise`),
+  ADD KEY `room` (`room`);
 
 --
 -- Index pour la table `rooms`
 --
 ALTER TABLE `rooms`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `room-type` (`room-type`);
+  ADD KEY `room-type` (`room-type`),
+  ADD KEY `ship` (`ship`);
 
 --
 -- Index pour la table `ship`
@@ -248,12 +311,6 @@ ALTER TABLE `ship`
 --
 
 --
--- AUTO_INCREMENT pour la table `admin`
---
-ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
 -- AUTO_INCREMENT pour la table `category`
 --
 ALTER TABLE `category`
@@ -263,47 +320,76 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT pour la table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT pour la table `cruises`
 --
 ALTER TABLE `cruises`
-  MODIFY `id-cruise` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id-cruise` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT pour la table `itinarary`
+--
+ALTER TABLE `itinarary`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT pour la table `port`
 --
 ALTER TABLE `port`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT pour la table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT pour la table `ship`
 --
 ALTER TABLE `ship`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Contraintes pour les tables déchargées
 --
 
 --
+-- Contraintes pour la table `cruises`
+--
+ALTER TABLE `cruises`
+  ADD CONSTRAINT `port` FOREIGN KEY (`port-of-departure`) REFERENCES `port` (`id`),
+  ADD CONSTRAINT `ship` FOREIGN KEY (`ship`) REFERENCES `ship` (`id`);
+
+--
+-- Contraintes pour la table `itinarary`
+--
+ALTER TABLE `itinarary`
+  ADD CONSTRAINT `itinarary_ibfk_1` FOREIGN KEY (`cruise`) REFERENCES `cruises` (`id-cruise`),
+  ADD CONSTRAINT `itinarary_ibfk_2` FOREIGN KEY (`port`) REFERENCES `port` (`id`);
+
+--
+-- Contraintes pour la table `reservation`
+--
+ALTER TABLE `reservation`
+  ADD CONSTRAINT `cruise` FOREIGN KEY (`cruise`) REFERENCES `cruises` (`id-cruise`),
+  ADD CONSTRAINT `custumer` FOREIGN KEY (`costumer`) REFERENCES `clients` (`id`),
+  ADD CONSTRAINT `room` FOREIGN KEY (`room`) REFERENCES `category` (`id`);
+
+--
 -- Contraintes pour la table `rooms`
 --
 ALTER TABLE `rooms`
-  ADD CONSTRAINT `room type` FOREIGN KEY (`room-type`) REFERENCES `category` (`id`);
+  ADD CONSTRAINT `room type` FOREIGN KEY (`room-type`) REFERENCES `category` (`id`),
+  ADD CONSTRAINT `rooms_ibfk_1` FOREIGN KEY (`ship`) REFERENCES `ship` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

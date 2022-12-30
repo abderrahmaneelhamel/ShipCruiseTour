@@ -81,7 +81,7 @@ class dh {
     function search($name){
         $test = new connection;
         $conn = $test->connection();
-        $sql = "SELECT c.`id-cruise`, s.name, c.price , c.img, c.`num-of-nights`, p.port, c.`cruise-itinerary`, c.`date-of-departure` FROM cruises c , ship s ,port p where c.ship=s.id and c.`port-of-departure`=p.id and c.`date-of-departure` like '%".$name."%';";
+        $sql = "SELECT c.`id-cruise`, s.name,s.`num-of-rooms`, s.`num-of-places`, c.price , c.img, c.`num-of-nights`, p.port, c.`cruise-itinerary`, c.`date-of-departure` FROM cruises c , ship s ,port p where c.ship=s.id and c.`port-of-departure`=p.id and c.`date-of-departure` like '%".$name."%';";
         $resultat = mysqli_query($conn,$sql);
         return $resultat;
     }
@@ -95,14 +95,14 @@ class dh {
     function searchS($name){
         $test = new connection;
         $conn = $test->connection();
-        $sql1 = "SELECT c.`id-cruise`, s.name, c.price , c.img, c.`num-of-nights`, p.port, c.`cruise-itinerary`, c.`date-of-departure` FROM cruises c , ship s ,port p where c.ship=s.id and c.`port-of-departure`=p.id and c.`ship`=$name;";
+        $sql1 = "SELECT c.`id-cruise`, s.name, s.`num-of-rooms`, s.`num-of-places`, c.price , c.img, c.`num-of-nights`, p.port, c.`cruise-itinerary`, c.`date-of-departure` FROM cruises c , ship s ,port p where c.ship=s.id and c.`port-of-departure`=p.id and c.`ship`=$name;";
         $resultat1 = mysqli_query($conn,$sql1);
         return $resultat1;
     }
     function searchP($name){
         $test = new connection;
         $conn = $test->connection();
-        $sql1 = "SELECT c.`id-cruise`, s.name, c.price , c.img, c.`num-of-nights`, p.port, c.`cruise-itinerary`, c.`date-of-departure` FROM cruises c , ship s ,port p where c.ship=s.id and c.`port-of-departure`=p.id and c.`port-of-departure`=$name;";
+        $sql1 = "SELECT c.`id-cruise`, s.name, s.`num-of-rooms`, s.`num-of-places`, c.price , c.img, c.`num-of-nights`, p.port, c.`cruise-itinerary`, c.`date-of-departure` FROM cruises c , ship s ,port p where c.ship=s.id and c.`port-of-departure`=p.id and c.`port-of-departure`=$name;";
         $resultat1 = mysqli_query($conn,$sql1);
         return $resultat1;
     }

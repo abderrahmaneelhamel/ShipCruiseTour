@@ -24,8 +24,6 @@ class HomeController{
     }
     public function home(){
         require("bookingController.php");
-        $book = new bookingController;
-        $book->booking();
         $cruise = new cruise;
         $resultat=$cruise->list();
         $list=new edit();
@@ -56,6 +54,16 @@ class HomeController{
                 $resultat = $test->searchP($name);
             }
         }
+        if(isset($_POST['itinarary'])){
+            $id = $_POST['cruise'];
+            $resultat0=$cruise->list1($id);
+        }
+        $r = 2;
+        $book = new bookingController;
+        $e = $book->booking();
+        if(isset($e)){
+            $r = $e;
+        }   
         include('../app/View/home.php');
     }
     function reservations(){
@@ -85,7 +93,7 @@ class HomeController{
         if(isset($_POST['search'])){
             $name = $_POST['search'];
             if($name===""){
-                header("location: dachBoard");
+                header("location: cruises");
             }else{
                 $resultat = $test->search($name);
             }

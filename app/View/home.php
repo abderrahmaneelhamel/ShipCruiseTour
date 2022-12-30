@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="shipCruiseTour">
+    <meta name="author" content="shipCruiseTour">
+    <link rel="shortcut icon" href="../app/View/assets/images/shipCruiseTour.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <title>Ship Cruise Tour</title>
     <link rel="stylesheet" type="text/css" href="../app/View/assets/css/bootstrap.min.css">
@@ -105,7 +106,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-xs-12">
                     <div class="right-text-content">
-                        <p><a rel="nofollow noopener" href="https://templatemo.com/tm-543-breezed" target="_parent">Ship Cruise Tour</a> 
+                        <p><h4>Ship Cruise Tour</h4> 
                         <br><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus praesentium commodi, eveniet totam doloribus est, laudantium voluptatibus illum harum consequatur voluptatem. Consequatur provident beatae nisi facilis molestiae delectus eum totam! Thank you.
                       <br><br>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum officia placeat nihil necessitatibus ipsa harum recusandae molestias quo optio corporis earum ducimus, quas at numquam, iure cupiditate laudantium dolor hic.</p>
                     </div>
@@ -173,7 +174,7 @@
                     <div class="subscribe-content">
                         <p>Vivamus suscipit blandit nibh, in cursus mi. Proin vel blandit metus, et auctor elit. Vivamus tincidunt tristique convallis. Ut nec odio vel arcu euismod semper nec ac sem.</p>
                         <div class="subscribe-form">
-                            <form id="subscribe-now" action="" method="get">
+                            <form>
                                 <div class="row">
                                     <div class="col-md-8 col-sm-12">
                                       <fieldset>
@@ -182,7 +183,7 @@
                                     </div>
                                     <div class="col-md-4 col-sm-12">
                                       <fieldset>
-                                        <button type="submit" id="form-submit" class="main-button">Subscribe Now</button>
+                                        <a href="#cruises" class="btn btn-outline-light">Subscribe Now</a>
                                       </fieldset>
                                     </div>
                                 </div>
@@ -243,6 +244,24 @@
         </div>
       </div>
     </section>
+    <?php if(isset($resultat0)){ ?>
+    <div id="itinarary" style="position: fixed; z-index: 990;top: 0px; background: transparent;backdrop-filter: blur(10px);width: 100%;height: 100%;display: flex;align-items: center;justify-content: center;">
+    <div style="border-radius: 20px; background-color: white;width: 50%;height: 50%;display: flex;align-items: center;justify-content: center;">
+        <a href="home"><img style="position: absolute;top: 160px;left: 877px;" onclick="clossse()" src="../app/View/assets/images/close.png"></a>
+        <?php 
+                $id = 1;
+                while($row0 = mysqli_fetch_assoc($resultat0)){
+                    ?> <div style="display: flex;flex-direction: column;align-items: center;justify-content: center;margin:10px;">
+                        <div style='color: black; margin:5px;'>The port <?php echo $id?>:<?php echo $row0['port']?></div>
+                        <div style='color: black; margin:5px;'>The country :<?php echo $row0['country']?></div>
+                    </div>
+                    <?php 
+                $id++;    
+            }
+            }
+            ?>
+        </div>
+        </div>
     <section class="section" id="testimonials">
         <div class="container" id="cruises">
             <div class="row">
@@ -299,23 +318,25 @@
                                     <div class="hover-content">
                                         <h3 style="color: white; margin:5px;">Cruise <?php echo $row['id-cruise'] ?></h3>
                                         <div style="color: white; margin:5px;">The cruise itinarary: <?php echo $row['cruise-itinerary']?></div>
+                                        <div style="color: white; margin:5px;">Click to visualise the cruise itinarary
+                                            <form method="post">
+                                                <input style="display: none;" type="text" name="cruise" value="<?php echo $row['id-cruise']?>">
+                                                <input type="submit" name="itinarary" value="View">
+                                            </form>
+                                        </div>
                                         <div style="color: white; margin:5px;">The port of departure: <?php echo $row['port']?></div>
                                         <div style="color: white; margin:5px;">The date of departure: <?php echo $row['date-of-departure']?></div>
                                         <form method="post">
                                         <input style="display: none;" type="text" name="cruise" value="<?php echo $row['id-cruise'] ?>">
                                         <input style="display: none;" type="text" name="price" value="<?php echo $row['price']?>">
                                         <input style="display: none;" type="text" name="place" value="<?php echo $row['ship']?>">
-                                        <select style="width: 50%; margin-left:25%;" class="form-select my-5" name="room" aria-label="Default select example">
+                                        <select style="width: 50%; margin-left:25%;margin-bottom: 1rem !important;" class="form-select my-5" name="room" aria-label="Default select example">
                                             <option value="1" selected>Solo bedroom | <?php echo ($row['price']+0) ?>$</option>
                                             <option value="2">room for two | <?php echo ($row['price']+100) ?>$</option>
                                             <option value="3">Family room | <?php echo ($row['price']+200) ?>$</option>
                                             <option value="4">suite | <?php echo ($row['price']+300) ?>$</option>
                                         </select>
-                                        <?php if(isset($_SESSION["user"])){
-                                            echo '<button type="submit" onclick="book();" name="submit" class="btn btn-outline-success">book</button>';
-                                        }else{
-                                            echo '<a href="login" class="btn btn-outline-success">Login to book</a>';
-                                        }?>
+                                            <button type="submit" name="submit" class="btn btn-outline-success">book</button>;
                                         </form>
                                     </div>
                                 </div>
@@ -459,7 +480,6 @@
                                 <li><a rel="nofollow" href=""><i class="fa fa-facebook"></i></a></li>
                                 <li><a rel="nofollow" href=""><i class="fa fa-twitter"></i></a></li>
                                 <li><a rel="nofollow" href=""><i class="fa fa-linkedin"></i></a></li>
-                                <li><a rel="nofollow" href=""><i class="fa fa-dribbble"></i></a></li>
                             </ul>
                     </div>
                 </div>
@@ -502,8 +522,15 @@
             } 
         });
         }); 
-        function book() {
+        if(<?php echo $r?> == 1){
             alert(" Thank you\n your reservation is booked");
+        }
+        if(<?php echo $r?> == 0){
+            alert(" There is no more room left \n choose another room type");
+        }
+        function clossse(){
+            var d = document.querySelector("#itinarary");
+            d.style.display = "none";
         }
     </script>
   </body>

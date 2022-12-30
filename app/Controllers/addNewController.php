@@ -37,16 +37,16 @@ class addNewController {
         
             if ($uploadOk == 0) {
                 echo "Sorry, your file was not uploaded.";
-                echo "<a href='dachBoard'>return to dachBoard</a>";
+                echo "<a href='cruises'>return to cruises</a>";
             } else {
                 if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {                    
                     $image = "uploads/" . $_FILES["image"]["name"];
                     $add = new addNew;
                     $add->addNew($ship,$price,$image,$numOfNights,$portOfDeparture,$cruiseItinerary,$dateOfDeparture);
-                    header("Location:dachBoard");
+                    header("Location:cruises");
                 } else {
                     echo "<span style:'color: black;'>Sorry, there was an error uploading your file.</span><br>";
-                    echo "<a href='dachBoard'>return to dachBoard</a>";
+                    echo "<a href='cruises'>return to cruises</a>";
                 }
             }
         }
