@@ -58,6 +58,15 @@ class HomeController{
             $id = $_POST['cruise'];
             $resultat0=$cruise->list1($id);
         }
+        if(isset($_POST['contact'])){
+            $namee = isset($_POST["name"]) ? $_POST["name"] : null;
+            $phone = isset($_POST["phone"]) ? $_POST["phone"] : null;
+            $email = isset($_POST["email"]) ? $_POST["email"] : null;
+            $subject = isset($_POST["subject"]) ? $_POST["subject"] : null;
+            $message = isset($_POST["message"]) ? $_POST["message"] : null;
+            $contact = new addNew;
+            $contact->contact($namee,$phone,$email,$subject,$message);
+        }
         $r = 2;
         $book = new bookingController;
         $e = $book->booking();

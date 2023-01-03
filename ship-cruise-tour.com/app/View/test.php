@@ -54,9 +54,7 @@
 </head>
 <body>
     <button id="myb">get data</button>
-    <div class="movies">
-        <script src="script.js"></script>
-    </div>
+    <div class="movies"></div>
 </body>
 <script>
     function affiche(){

@@ -217,32 +217,32 @@
                     <div class="row grid">
                         <div data-aos="flip-left" style="width: 270px;" class="col-lg-4 col-md-4 col-sm-6 col-xs-12 m-1 p-0 p-0">
                           <div class="item" >
-                            <img style="width: -webkit-fill-available;" src="../app/View/assets/images/ship3.jpg" alt="">
+                          <abbr style="text-decoration : none;" title="Wonder of sea"><img style="width: -webkit-fill-available;" src="../app/View/assets/images/ship3.jpg" alt=""></abbr>
                           </div>
                         </div>
                         <div data-aos="flip-left" style="width: 270px;" class="col-lg-4 col-md-4 col-sm-6 col-xs-12 m-1 p-0">
                           <div class="item" >
-                            <img style="width: -webkit-fill-available;" src="../app/View/assets/images/ship4.jpg" alt="">
+                            <abbr style="text-decoration : none;" title="sea cruiser"><img style="width: -webkit-fill-available;" src="../app/View/assets/images/ship4.jpg" alt=""></abbr>
                           </div>
                         </div>
                         <div data-aos="flip-left" style="width: 270px;" class="col-lg-4 col-md-4 col-sm-6 col-xs-12 m-1 p-0">
                           <div class="item" >
-                            <img style="width: -webkit-fill-available;" src="../app/View/assets/images/ship8.jpg" alt="">
+                            <abbr style="text-decoration : none;" title="Grand sailor"><img style="width: -webkit-fill-available;" src="../app/View/assets/images/ship8.jpg" alt=""></abbr>
                           </div>
                         </div>
                         <div data-aos="flip-left" style="width: 270px;" class="col-lg-4 col-md-4 col-sm-6 col-xs-12 m-1 p-0 p-0">
                           <div class="item" >
-                            <img style="width: -webkit-fill-available;" src="../app/View/assets/images/ship4.jpg" alt="">
+                            <abbr style="text-decoration : none;" title="sea cruiser"><img style="width: -webkit-fill-available;" src="../app/View/assets/images/ship4.jpg" alt=""></abbr>
                           </div>
                         </div>
                         <div data-aos="flip-left" style="width: 270px;" class="col-lg-4 col-md-4 col-sm-6 col-xs-12 m-1 p-0">
                           <div class="item" >
-                            <img style="width: -webkit-fill-available;" src="../app/View/assets/images/ship6.jpg" alt="">
+                            <abbr style="text-decoration : none;" title="White mansion"><img style="width: -webkit-fill-available;" src="../app/View/assets/images/ship6.jpg" alt=""></abbr>
                           </div>
                         </div>
                         <div data-aos="flip-left" style="width: 270px;" class="col-lg-4 col-md-4 col-sm-6 col-xs-12 m-1 p-0">
                           <div class="item" >
-                            <img style="width: -webkit-fill-available;" src="../app/View/assets/images/ship3.jpg" alt="">
+                            <abbr style="text-decoration : none;" title="Wonder of sea"><img style="width: -webkit-fill-available;" src="../app/View/assets/images/ship3.jpg" alt=""></abbr>
                           </div>
                         </div>
                     </div>
@@ -422,8 +422,8 @@
                         </div>
                         <ul class="contact-info">
                             <li><img src="../app/View/assets/images/contact-info-01.png" alt="">010-020-0860</li>
-                            <li><img src="../app/View/assets/images/contact-info-02.png" alt="">info@company.com</li>
-                            <li><img src="../app/View/assets/images/contact-info-03.png" alt="">www.company.com</li>
+                            <li><img src="../app/View/assets/images/contact-info-02.png" alt="">info@ship-cruise-tour.com</li>
+                            <li><img src="../app/View/assets/images/contact-info-03.png" alt="">www.ship-cruise-tour.com</li>
                         </ul>
                     </div>
                 </div>
@@ -438,7 +438,7 @@
                             </div>
                             <div class="col-md-6 col-sm-12">
                               <fieldset>
-                                <input data-aos="zoom-in-up" name="phone" type="text" id="phone" placeholder="Your Phone" required="">
+                                <input data-aos="zoom-in-up" name="phone" type="number" id="phone" placeholder="Your Phone *" required="">
                               </fieldset>
                             </div>
                             <div class="col-md-6 col-sm-12">
@@ -448,17 +448,17 @@
                             </div>
                             <div class="col-md-6 col-sm-12">
                               <fieldset>
-                                <input data-aos="zoom-in-up" name="subject" type="text" id="subject" placeholder="Subject">
+                                <input data-aos="zoom-in-up" name="subject" type="text" id="subject" placeholder="Subject *" required="">
                               </fieldset>
                             </div>
                             <div class="col-lg-12">
                               <fieldset>
-                                <textarea data-aos="zoom-in-up" name="message" rows="6" id="message" placeholder="Message" required=""></textarea>
+                                <textarea data-aos="zoom-in-up" name="message" rows="6" id="message" placeholder="Message *" required=""></textarea>
                               </fieldset>
                             </div>
                             <div class="col-lg-12">
                               <fieldset>
-                                <button data-aos="fade-right" type="submit" id="form-submit" class="main-button-icon">Send Message Now <i class="fa fa-arrow-right"></i></button>
+                                <button data-aos="fade-right" name="contact" type="submit" id="form-submit" class="main-button-icon">Send Message Now <i class="fa fa-arrow-right"></i></button>
                               </fieldset>
                             </div>
                           </div>

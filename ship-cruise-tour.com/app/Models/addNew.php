@@ -1,6 +1,7 @@
 <?php
 
 class addNew {
+
     function addNew($ship,$price,$image,$numOfNights,$portOfDeparture,$cruiseItinerary,$dateOfDeparture){
         
         $test = new connection;
@@ -66,6 +67,15 @@ class addNew {
         $resultat = mysqli_query($conn,$sql);
         if($resultat){
             header("Location:port");
+        }
+    }
+    function contact($name,$phone,$email,$subject,$message){
+        $test = new connection;
+        $conn = $test->connection();
+        $sql = "INSERT INTO `contact`(`name`, `phone`, `email`, `subject`, `massage`) VALUES ('$name','$phone','$email','$subject','$message')";
+        $resultat = mysqli_query($conn,$sql);
+        if($resultat){
+            header("Location:home#contact");
         }
     }
 }

@@ -37,7 +37,7 @@
     </div>
   </div>
 </nav>
-<div style="width: 389px !important; overflow-x: scroll;">
+<div style="width: 100% !important; overflow-x: scroll;">
 <table class="table table-light table-striped table-hover text-center">
   <thead class="table-light">
     <tr>

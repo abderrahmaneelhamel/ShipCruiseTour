@@ -170,7 +170,7 @@
         data: {
           labels: ["booked", "empty"],
           datasets: [{
-            label: 'food Items',
+            label: 'cruise',
             data: [<?php echo $row7['num-of-places']?>, (<?php echo $row7['num-of-rooms']?>-<?php echo $row7['num-of-places']?>)],
             backgroundColor: ["#0074D9", "#FF4136", "#2ECC40",
             "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00",

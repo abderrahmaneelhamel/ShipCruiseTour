@@ -70,7 +70,7 @@ class addNewController {
             $add->addNewP($name,$country);
         }
     }
-
+    
 }
 
 ?>
