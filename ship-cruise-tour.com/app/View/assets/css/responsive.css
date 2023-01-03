@@ -295,9 +295,7 @@
     .navbar-toggler {
         background-color: #ffffff;
     }
-    .logo {
-        display: none;
-    }
+    
     .menu_main {
         display: none;
     }
@@ -468,7 +466,11 @@
         padding-top: 90px;
     }
 }
-
+@media (max-width: 340px) {
+    .logo {
+        display: none;
+    }
+}
 @media (max-width: 575px) {
     .navbar-light .navbar-toggler {
         color: rgba(0, 0, 0, .5);
@@ -494,9 +496,7 @@
     .navbar-toggler {
         background-color: #ffffff;
     }
-    .logo {
-        display: none;
-    }
+    
     .menu_main {
         display: none;
     }

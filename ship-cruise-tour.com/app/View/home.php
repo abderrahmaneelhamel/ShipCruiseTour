@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="../app/View/assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../app/View/assets/css/font-awesome.css">
     <link rel="stylesheet" href="../app/View/assets/css/style.css">
+    <link rel="stylesheet" href="../app/View/assets/css/responsive.css">
     <link rel="stylesheet" href="../app/View/assets/css/owl-carousel.css">
     <link rel="stylesheet" href="../app/View/assets/css/lightbox.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -20,37 +21,43 @@
 </head>
 <body>
     <header id="navbar_top" class="header-area header-sticky ">
-        <div class="container">
+    <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <nav class="main-nav">
-                        <a href="home" class="logo" id="nv">
-                            SHIP CRUISE TOUR
-                        </a>
-                        <ul class="nav">
-                            <li  class="scroll-to-section"><a class="nvr" href="#top">Home</a></li>
-                            <li  class="scroll-to-section"><a class="nvr" href="#about">About</a></li>
-                            <li  class="scroll-to-section"><a class="nvr" href="#cruises">cruises</a></li>
-                            <li  class="scroll-to-section"><a class="nvr" href="#contact-us">Contact Us</a></li> 
-                            <?php if(isset($_SESSION["user"])){
-                                echo '<li  class="scroll-to-section"><a class="nvr" href="reservations">My reservations</a></li>';
-                                echo '<li  class="scroll-to-section"><a id="nvrb" class="nvr disconnect" href="disconnect">disconnect</a></li>';
-                            }else{
-                                echo '<li  class="scroll-to-section"><a id="nvrb" class="nvr" href="login">Login</a></li>';
-                            }
-                            ?>
-                        </ul>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary main-nav">
+                        <div class="container-fluid">
+                            <a href="home" class="logo" id="nv">
+                                SHIP CRUISE TOUR
+                            </a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div style="justify-content: flex-end;" class="collapse navbar-collapse" id="navbarNavDropdown">
+                                <ul class="nav navbar-nav" id="navv">
+                                    <li  class="scroll-to-section nav-item"><a class="nvr dis" href="#top">Home</a></li>
+                                    <li  class="scroll-to-section nav-item"><a class="nvr dis" href="#about">About</a></li>
+                                    <li  class="scroll-to-section nav-item"><a class="nvr dis" href="#cruises">cruises</a></li>
+                                    <li  class="scroll-to-section nav-item"><a class="nvr dis" href="#contact-us">Contact Us</a></li> 
+                                    <?php if(isset($_SESSION["user"])){
+                                        echo '<li  class="scroll-to-section nav-item"><a class="nvr" href="reservations">My reservations</a></li>';
+                                        echo '<li  class="scroll-to-section nav-item"><a style="justify-content: center;" id="nvrb" class="nvr disconnect" href="disconnect">disconnect</a></li>';
+                                    }else{
+                                        echo '<li  class="scroll-to-section nav-item"><a id="nvrb" class="nvr" href="login">Login</a></li>';
+                                    }
+                                    ?>
+                                </ul>
+                            </div>
+                        </div>
                     </nav>
                 </div>
             </div>
         </div>
     </header>
-
     <div class="main-banner header-text" id="top">
     <div class="Modern-Slider">
           <div class="item">
             <div class="img-fill">
-                <img src="../app/View/assets/images/slide-02.jpg" alt="">
+                <img src="../app/View/assets/images/shipp.jpg" alt="">
                 <div class="text-content">
                   <h3>Welcome To Ship Cruise Tour</h3>
                   <h5>The Best Cruises in the world</h5>
@@ -269,7 +276,7 @@
                     <div class="section-heading">
                         <h6>Best Deals</h6>
                         <h2>Our best Cruises</h2>
-                        <div style="width: 100%;" class="d-flex justify-content-evenly">
+                        <div style="width: 100%;" class="d-flex search">
                         <div class="d-flex justify-content-center my-2">
                         <form style="width: 100%;" class="d-flex" role="search" method="POST">
                             <input class="form-control me-3" name="date" placeholder="Search by date" aria-label="Search">
@@ -461,15 +468,13 @@
             </div>
         </div>
     </section>
-    <!-- ***** Contact Us Area Ends ***** -->
-    
-    <!-- ***** Footer Start ***** -->
     <footer>
         <div class="container">
+          <div style="width: 100%; display:flex; justify-content:center;"><img style="width: 150px;" src="../app/View/assets/images/shipCruiseTour.png" alt="logo"></div>
             <div class="row">
                 <div class="col-lg-6 col-xs-12">
                     <div class="left-text-content">
-                        <p>Copyright &copy; 2020 SHIP CRUISE TOUR 
+                        <p style="margin-top: 5px !important;">Copyright &copy; 2020 SHIP CRUISE TOUR 
                         
                     </div>
                 </div>

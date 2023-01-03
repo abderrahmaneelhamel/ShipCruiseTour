@@ -37,6 +37,7 @@
     </div>
   </div>
 </nav>
+<div style="width: 389px !important; overflow-x: scroll;">
 <table class="table table-light table-striped table-hover text-center">
   <thead class="table-light">
     <tr>
@@ -91,6 +92,7 @@
     
   </tbody>
 </table>
+</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2
 .2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>

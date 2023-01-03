@@ -16,6 +16,7 @@
   <link
     rel="stylesheet"
     href="../app/View/assets/contrast-bootstrap-pro/css/cdb.css" />
+    <link rel="stylesheet" href="../app/View/assets/css/style.css">
   <script
     src="../app/View/assets/contrast-bootstrap-pro/js/cdb.js"></script>
   <script
@@ -28,19 +29,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-<nav style="background-color:black; display:flex; justify-content:space-between; padding-left:5%;" class="res navbar navbar-expand-lg bg-dark">
-<ul class="navbar-nav me-auto m-2 mb-lg-0">
+<nav style="background-color:black; display:flex; justify-content:space-between; width:100%;" class="res navbar navbar-expand-lg bg-dark">
+<div class="container-fluid">
+    <a style="color: white;" class="navbar-brand" href="home">Ship Cruise Tour</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a style="color: white;" class="nav-link active" aria-current="page" href="dachBoard">Home</a>
         </li>
         <li class="nav-item">
           <a style="color: white;" class="nav-link" href="cruises">management</a>
-        </li>   
-</ul>
-<a class="btn btn-primary" style="margin:5px; margin-right:30px; width:120px;" href="disconnect" class="disconnect">disconnect</a>
+        </li>
+        <li class="nav-item">
+          <a class="disconnected btn btn-primary" style="width:120px;" href="disconnect" >disconnect</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>
-<div class="d-flex">
-<div style="width: 50%;" class="d-flex flex-wrap justify-content-start m-4">
+<div class="d-flex flex-wrap">
+<div style="width: 580px;" class="d-flex flex-wrap justify-content-start m-4">
 <label class="log" style="color:rgb(10 82 189); width: 27rem; "><h1>DachBoard</h1></label>
 <label class="log" style="color:rgb(10 82 189); width: 27rem;"><h3>1.General Stastics :</h3></label>
 <?php
@@ -122,11 +133,34 @@
   </form>
 </div>
 <?php    $row7 = mysqli_fetch_assoc($resultat7); ?>
-  <div style="width: 100%; height: 100%; margin: auto;">
+  <div style="width: 100%; height: 50%; margin: auto;">
     <canvas id="chart"></canvas>
   </div>  
 </div> 
 </div>
+<footer>
+        <div class="container">
+          <div style="width: 100%; display:flex; justify-content:center;"><img style="width: 150px;" src="../app/View/assets/images/shipCruiseTour.png" alt="logo"></div>
+            <div class="row">
+                <div class="col-lg-6 col-xs-12">
+                    <div class="left-text-content">
+                        <p>Copyright &copy; 2020 SHIP CRUISE TOUR 
+                        
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xs-12">
+                    <div class="right-text-content">
+                            <ul class="social-icons">
+                                <li><p>Follow Us</p></li>
+                                <li><a rel="nofollow" href=""><i class="fa fa-facebook"></i></a></li>
+                                <li><a rel="nofollow" href=""><i class="fa fa-twitter"></i></a></li>
+                                <li><a rel="nofollow" href=""><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 <script>

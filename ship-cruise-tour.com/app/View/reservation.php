@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../app/View/assets/images/shipCruiseTour.png" type="image/x-icon">
     <title>Ship cruise tour</title>
-    <link rel="stylesheet" href="../app/View/css/bootstrap.css">
+    <link rel="stylesheet" href="../app/View/assets/css/bootstrap.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link href="../app/View/assets/css/style2.css" rel="stylesheet" />
     <script src="../app/View/assets/js/bootstrap.js"></script>
@@ -15,18 +15,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-<nav style="background-color:black; display:flex; justify-content:space-between; padding-left:15%;" class="res navbar navbar-expand-lg bg-dark">
-      <a style="color: white;" class="nav-link active" aria-current="page" href="dachBoard">Home</a>      
+<nav style="background-color:black; display:flex; justify-content:space-between; width:100%;" class="res navbar navbar-expand-lg bg-dark">
+<div class="container-fluid">
+    <a style="color: white;" class="navbar-brand" href="home">Ship Cruise Tour</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a style="color: white;" class="nav-link active" aria-current="page" href="dachBoard">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-primary" style="margin-right:30px; width:120px;" href="disconnect" class="disconnect">disconnect</a>
+        </li>
+      </ul>
       <form style="width: 65%;" class="d-flex" role="search" method="POST">
         <input class="form-control me-3" name="search" type="search" placeholder="Search by costumer name" aria-label="Search">
         <button style=" border-radius: 7px; border: 1px solid #fff;" class="btn btn-outline-light" type="submit">Search</button>
       </form>
-      <a class="btn btn-primary" style="margin:5px; margin-right:30px; width:120px;" href="disconnect" class="disconnect">disconnect</a>
+    </div>
+  </div>
 </nav>
 <div style="margin-top: 20px; margin-bottom: 20px;">
 <ul class="nav nav-tabs">
   <li class="nav-item lii">
-    <a class="nav-link" aria-current="page" href="cruises">cruises</a>
+    <a class="nav-link " aria-current="page" href="cruises">cruises</a>
   </li>
   <li class="nav-item lii">
     <a class="nav-link" href="ship">ship</a>
@@ -35,13 +49,14 @@
     <a class="nav-link" href="port">port</a>
   </li>
   <li class="nav-item lii">
-    <a class="nav-link active" href="reservation">reservations</a>
+    <a class="nav-link  active" href="reservation">reservation</a>
   </li>
 </ul>
 </div>
 <div>
 <br>    
 </div>
+<div style="width: 100% !important; overflow-x: scroll;">
 <table class="table table-light table-striped table-hover text-center">
   <thead class="table-light">
     <tr>
@@ -79,6 +94,7 @@
     
   </tbody>
 </table>
+</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2
 .2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>

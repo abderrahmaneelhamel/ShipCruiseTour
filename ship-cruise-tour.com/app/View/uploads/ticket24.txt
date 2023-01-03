@@ -1,0 +1,7 @@
+************************ YOUR TICKET ****************************
+*name : abderrahmane
+*cruise : 4
+*price : 500
+*reservation date : 2023-01-02
+*room type : family room
+*****************************************************************

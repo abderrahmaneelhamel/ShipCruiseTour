@@ -41,7 +41,11 @@
       background: radial-gradient(#0099a6, #00fff3);
       overflow: hidden;
     }
-
+    @media (max-width: 600px) {
+      #radius-shape-2 {
+      display: none !important;
+    }
+    }
     .bg-glass {
       background-color: hsla(0, 0%, 100%, 0.5) !important;
       backdrop-filter: saturate(200%) blur(25px);
