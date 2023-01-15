@@ -33,7 +33,9 @@ foreach($row as $rowValue) {
 }
 $pdf->SetFont('Arial','B',15);	
 $pdf->SetTextColor(20,120,90);
-$pdf->Write( 20, "                                             ENJOY YOUR TRIP\n" );
+$pdf->Ln(10);
+$pdf->Write( 0, "                                               ENJOY YOUR TRIP\n" );
+$pdf->Write( 0, "                                               ________________\n" );
 
 ob_end_clean();
 $pdf->Output('example_006.pdf', 'I');
