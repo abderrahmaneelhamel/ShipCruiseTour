@@ -116,6 +116,10 @@
                         <p><h4>Ship Cruise Tour</h4> 
                         <br><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus praesentium commodi, eveniet totam doloribus est, laudantium voluptatibus illum harum consequatur voluptatem. Consequatur provident beatae nisi facilis molestiae delectus eum totam! Thank you.
                       <br><br>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum officia placeat nihil necessitatibus ipsa harum recusandae molestias quo optio corporis earum ducimus, quas at numquam, iure cupiditate laudantium dolor hic.</p>
+                      <details>
+                            <summary>Click to view more</summary>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus cupiditate illo facere quaerat debitis, molestias delectus blanditiis tempore? Omnis nemo iure temporibus numquam vero atque eaque impedit! Consequuntur, natus quos! .</p>
+                        </details>
                     </div>
                 </div>
             </div>
@@ -328,7 +332,7 @@
                                         <div style="color: white; margin:5px;">Click to visualise the cruise itinarary
                                             <form method="post">
                                                 <input style="display: none;" type="text" name="cruise" value="<?php echo $row['id-cruise']?>">
-                                                <input type="submit" name="itinarary" value="View">
+                                                <input type="submit" class="btn btn-outline-light" name="itinarary" value="View">
                                             </form>
                                         </div>
                                         <div style="color: white; margin:5px;">The port of departure: <?php echo $row['port']?></div>
@@ -491,7 +495,6 @@
             </div>
         </div>
     </footer>
-    
     <script src="../app/View/assets/js/jquery-2.1.0.min.js"></script>
     <script src="../app/View/assets/js/popper.js"></script>
     <script src="../app/View/assets/js/bootstrap.min.js"></script>

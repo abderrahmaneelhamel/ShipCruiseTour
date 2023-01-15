@@ -2,7 +2,7 @@
 ob_start();
 require_once '../app/Controllers/HomeController.php';
 $home = new HomeController();
-$pages = ['login','signuppage','test'];
+$pages = ['login','signuppage','test','test2','test3'];
 if(isset($_GET['page'])){
     if($_GET['page']==="dachBoard"){
         $home->dachboard();
@@ -61,6 +61,11 @@ if(isset($_GET['page'])){
     }elseif(strpos($_SERVER['REQUEST_URI'], "Re?id=") == true){
         $ID = str_replace("/public/Re?id=","",$_SERVER['REQUEST_URI']);
         $home->editR($ID);
+    }elseif(strpos($_SERVER['REQUEST_URI'], "ticket?id=") == true){
+        $id = str_replace("/public/ticket?id=","",$_SERVER['REQUEST_URI']);
+        require("../app/Controllers/bookingController.php");
+        $ticket = new bookingController;
+        $ticket->ticket($id);
     }elseif(in_array($_GET['page'],$pages)){
         $page = $_GET['page'];
         $home->index($page);

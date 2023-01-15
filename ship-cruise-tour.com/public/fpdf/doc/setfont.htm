@@ -9,77 +9,82 @@
 <h1>SetFont</h1>
 <code>SetFont(<b>string</b> family [, <b>string</b> style [, <b>float</b> size]])</code>
 <h2>Description</h2>
-Sets the font used to print character strings. It is mandatory to call this method
-at least once before printing text or the resulting document would not be valid.
+Fixe la police utilisée pour imprimer les chaînes de caractères. Il est obligatoire
+d'appeler cette méthode au moins une fois avant d'imprimer du texte, sinon le document
+résultant ne sera pas valide.
 <br>
-The font can be either a standard one or a font added via the AddFont() method. Standard fonts
-use the Windows encoding cp1252 (Western Europe).
+La police peut être soit une police standard, soit une police ajoutée à l'aide de la méthode
+AddFont(). Les polices standard utilisent l'encodage Windows cp1252 (Europe de l'ouest).
 <br>
-The method can be called before the first page is created and the font is kept from page
-to page.
+La méthode peut être appelée avant que la première page ne soit créée et la police est
+conservée de page en page.
 <br>
-If you just wish to change the current font size, it is simpler to call SetFontSize().
+Si vous souhaitez juste changer la taille courante, il est plus simple d'appeler SetFontSize().
 <br>
 <br>
-<strong>Note:</strong> the font definition files must be accessible. They are searched successively in:
+<strong>Note :</strong> il est nécessaire que les fichiers de définition soient accessibles. Il sont
+recherchés successivement dans :
 <ul>
-<li>The directory defined by the <code>FPDF_FONTPATH</code> constant (if that constant is defined)</li>
-<li>The <code>font</code> directory located in the same directory as <code>fpdf.php</code> (if it exists)</li>
+<li>Le répertoire défini par la constante <code>FPDF_FONTPATH</code> (si cette constante est définie)</li>
+<li>Le répertoire <code>font</code> situé dans le répertoire de <code>fpdf.php</code> (s'il existe)</li>
 </ul>
-Example using <code>FPDF_FONTPATH</code>:
+Exemple d'utilisation de <code>FPDF_FONTPATH</code>:
 <div class="doc-source">
 <pre><code>define('FPDF_FONTPATH', '/home/www/font');
 require('fpdf.php');</code></pre>
 </div>
-If the file corresponding to the requested font is not found, the error "Could not include font
-definition file" is raised.
-<h2>Parameters</h2>
+Si le fichier correspondant à la police demandée n'est pas trouvé, l'erreur "Could not include
+font definition file" est générée.
+<h2>Paramètres</h2>
 <dl class="param">
 <dt><code>family</code></dt>
 <dd>
-Family font. It can be either a name defined by AddFont() or one of the standard families (case
-insensitive):
+Famille de la police. Il peut s'agir d'un nom défini par AddFont() ou bien d'une des familles
+standard :
 <ul>
-<li><code>Courier</code> (fixed-width)</li>
-<li><code>Helvetica</code> or <code>Arial</code> (synonymous; sans serif)</li>
-<li><code>Times</code> (serif)</li>
-<li><code>Symbol</code> (symbolic)</li>
-<li><code>ZapfDingbats</code> (symbolic)</li>
+<li><code>Courier</code> (caractères de largeur fixe)</li>
+<li><code>Helvetica</code> ou <code>Arial</code> (synonymes; sans serif)</li>
+<li><code>Times</code> (avec serif)</li>
+<li><code>Symbol</code> (symboles)</li>
+<li><code>ZapfDingbats</code> (symboles)</li>
 </ul>
-It is also possible to pass an empty string. In that case, the current family is kept.
+Le nom n'est pas sensible à la casse.
+<br>
+Il est également possible de passer une chaîne vide, auquel cas la famille courante est
+conservée.
 </dd>
 <dt><code>style</code></dt>
 <dd>
-Font style. Possible values are (case insensitive):
+Style de la police. Les valeurs possibles sont (indépendamment de la casse) :
 <ul>
-<li>empty string: regular</li>
-<li><code>B</code>: bold</li>
-<li><code>I</code>: italic</li>
-<li><code>U</code>: underline</li>
+<li>chaîne vide : normal</li>
+<li><code>B</code> : gras</li>
+<li><code>I</code> : italique</li>
+<li><code>U</code> : souligné</li>
 </ul>
-or any combination. The default value is regular.
-Bold and italic styles do not apply to <code>Symbol</code> and <code>ZapfDingbats</code>.
+ou une combinaison quelconque. La valeur par défaut est le style normal.
+Les styles gras et italique ne s'appliquent pas aux familles <code>Symbol</code> et <code>ZapfDingbats</code>.
 </dd>
 <dt><code>size</code></dt>
 <dd>
-Font size in points.
+Taille de la police en points.
 <br>
-The default value is the current size. If no size has been specified since the beginning of
-the document, the value is 12.
+La valeur par défaut est la taille courante. Si aucune taille n'a encore été spécifiée
+depuis le début du document, la valeur prise est 12.
 </dd>
 </dl>
-<h2>Example</h2>
+<h2>Exemple</h2>
 <div class="doc-source">
-<pre><code>// Times regular 12
+<pre><code>// Times normal 12
 $pdf-&gt;SetFont('Times');
-// Arial bold 14
+// Arial gras 14
 $pdf-&gt;SetFont('Arial', 'B', 14);
-// Removes bold
+// Enlève le gras
 $pdf-&gt;SetFont('');
-// Times bold, italic and underlined 14
+// Times gras, italique et souligné 14
 $pdf-&gt;SetFont('Times', 'BIU');</code></pre>
 </div>
-<h2>See also</h2>
+<h2>Voir</h2>
 <a href="addfont.htm">AddFont</a>,
 <a href="setfontsize.htm">SetFontSize</a>,
 <a href="cell.htm">Cell</a>,

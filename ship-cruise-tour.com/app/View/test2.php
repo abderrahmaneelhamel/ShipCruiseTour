@@ -1,6 +1,3 @@
-<?php
-  $word = $_POST["search"];
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,28 +59,24 @@
   </style>
 </head>
 <body>
-    <form class="d-flex flex-column justify-content-center" method="post">
-      <input style="margin: 20px 5px 10px 10px;" type="text" placeholder="enter any key word for movies" name="search">
-      <input class="btn btn-outline-success" type="submit" onclick="affiche()" value="submit">
-    </form>
     <div class="movies"></div>
 </body>
 <script>
 const options = {
     method: 'GET',
     headers: {
-        'X-RapidAPI-Key': 'c8eebf3071msh825ba89f4efc485p1eda30jsn5999779417f0',
-        'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
+        'X-RapidAPI-Key': 'ac207a43b8msha17b405f87c2a72p1f442ajsn5cdb8187e21e',
+        'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
     }
 };
 
-fetch('https://online-movie-database.p.rapidapi.com/auto-complete?q=<?php echo $word?>%20', options)
+fetch('https://free-to-play-games-database.p.rapidapi.com/api/filter?tag=3d.mmorpg.fantasy.pvp&platform=pc', options)
     .then(response => response.json())
     .then(data =>{
-         const list = data.d;
+         const list = data;
         list.map((item) => {
-            const name = item.l;
-            const poster =item.i.imageUrl;
+            const name = item.title;
+            const poster =item.thumbnail;
             const movie = `<li><img src ="${poster}"> <h2>${name}</h2></li>`;
             document.querySelector('.movies').innerHTML+=movie;
         })

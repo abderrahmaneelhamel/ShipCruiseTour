@@ -49,5 +49,32 @@ class bookingController {
             }
         }
     }
+    function ticket($id){
+        require('fpdf/fpdf.php');
+        $pdf = new FPDF();
+        $pdf->AddPage();
+        $row=file("../app/View/uploads/ticket".$id.".txt");
+        $logoFile = '../app/View/assets/images/shipCruiseTour.png';
+        $pdf->Image( $logoFile, 80, 10, '40px' );
+        $pdf->SetTextColor(20,50,90);
+        $pdf->SetFont('Arial','B',20);	
+        $pdf->Write( 70, "                            SHIP CRUISE TOUR\n" );
+        $pdf->SetTextColor(0,0,0);
+        $pdf->Write( 0, "                                 YOUR TICKET\n" );
+        $pdf->Write( 0, "                                 ____________\n" );
+        foreach($row as $rowValue) {
+            $data=explode(';',$rowValue);
+            foreach($data as $columnValue)
+                $pdf->Cell(90,12,$columnValue);
+                $pdf->SetFont('Arial','',12);		
+                $pdf->Ln();
+        }
+        $pdf->SetFont('Arial','B',15);	
+        $pdf->SetTextColor(20,120,90);
+        $pdf->Write( 20, "                                             ENJOY YOUR TRIP\n" );
+        $name = "ticket.pdf";
+        ob_end_clean();
+        $pdf->Output($name, 'I');
+    }
     
 }

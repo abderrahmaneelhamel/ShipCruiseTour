@@ -1,15 +1,15 @@
-The FPDF library is made up of the following elements:
+FPDF est constitué des éléments suivants :
 
-- the main file, fpdf.php, which contains the class
-- the font definition files located in the font directory
+- le fichier principal fpdf.php contenant la classe
+- les fichiers de définition des polices contenus dans le répertoire font
 
-The font definition files are necessary as soon as you want to output some text in a document.
-If they are not accessible, the SetFont() method will produce the following error:
+Les fichiers de police sont indispensables dès que l'on veut écrire du texte dans un document.
+S'ils ne sont pas accessibles, la méthode SetFont() produira l'erreur suivante :
 
 FPDF error: Could not include font definition file
 
 
-Remarks:
+Remarques :
 
-- Only the files corresponding to the fonts actually used are necessary
-- The tutorials provided in this package are ready to be executed
+- Seuls les fichiers correspondant aux polices effectivement utilisées sont nécessaires
+- Les tutoriels fournis dans l'archive sont prêts à être exécutés

@@ -1,7 +1,6 @@
-************************ YOUR TICKET ****************************
-*name : abderrahmane
-*cruise : 1
-*price : 300
-*reservation date : 2022-12-30
-*room type : solo room
-*****************************************************************
+; 
+name ; : abderrahmane
+cruise ; : 1
+price ; : 300
+reservation date ; : 2022-12-30
+room type ; : solo room

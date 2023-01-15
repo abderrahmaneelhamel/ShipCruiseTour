@@ -9,45 +9,47 @@
 <h1>AddFont</h1>
 <code>AddFont(<b>string</b> family [, <b>string</b> style [, <b>string</b> file]])</code>
 <h2>Description</h2>
-Imports a TrueType, OpenType or Type1 font and makes it available. It is necessary to generate a font
-definition file first with the MakeFont utility.
+Importe une police TrueType, OpenType ou Type1 et la rend disponible. Il faut au préalable avoir généré
+un fichier de définition de police avec l'utilitaire MakeFont.
 <br>
-The definition file (and the font file itself when embedding) must be present in the font directory.
-If it is not found, the error "Could not include font definition file" is raised.
-<h2>Parameters</h2>
+Le fichier de définition (ainsi que le fichier de police en cas d'incorporation) doit être présent
+dans le répertoire des polices. S'il n'est pas trouvé, l'erreur "Could not include font definition file"
+est renvoyée.
+<h2>Paramètres</h2>
 <dl class="param">
 <dt><code>family</code></dt>
 <dd>
-Font family. The name can be chosen arbitrarily. If it is a standard family name, it will
-override the corresponding font.
+Famille de la police. Le nom peut être choisi arbitrairement. S'il est celui d'une famille
+standard, la police correspondante sera masquée.
 </dd>
 <dt><code>style</code></dt>
 <dd>
-Font style. Possible values are (case insensitive):
+Style de la police. Les valeurs possibles sont (indépendamment de la casse) :
 <ul>
-<li>empty string: regular</li>
-<li><code>B</code>: bold</li>
-<li><code>I</code>: italic</li>
-<li><code>BI</code> or <code>IB</code>: bold italic</li>
+<li>chaîne vide : normal</li>
+<li><code>B</code> : gras</li>
+<li><code>I</code> : italique</li>
+<li><code>BI</code> ou <code>IB</code> : gras italique</li>
 </ul>
-The default value is regular.
+La valeur par défaut est le style normal.
 </dd>
 <dt><code>file</code></dt>
 <dd>
-The font definition file.
+Le fichier de définition de police.
 <br>
-By default, the name is built from the family and style, in lower case with no space.
+Par défaut, le nom est construit à partir du nom de la famille et du style, en minuscules et
+sans espace.
 </dd>
 </dl>
-<h2>Example</h2>
+<h2>Exemple</h2>
 <div class="doc-source">
 <pre><code>$pdf-&gt;AddFont('Comic', 'I');</code></pre>
 </div>
-is equivalent to:
+est équivalent à :
 <div class="doc-source">
 <pre><code>$pdf-&gt;AddFont('Comic', 'I', 'comici.php');</code></pre>
 </div>
-<h2>See also</h2>
+<h2>Voir</h2>
 <a href="setfont.htm">SetFont</a>
 <hr style="margin-top:1.5em">
 <div style="text-align:center"><a href="index.htm">Index</a></div>

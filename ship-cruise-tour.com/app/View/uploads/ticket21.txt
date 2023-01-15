@@ -1,0 +1,6 @@
+;
+name ; : abdo
+cruise ; : 4
+price ; : 500
+reservation date ; : 2022-12-30
+room type ; : family room

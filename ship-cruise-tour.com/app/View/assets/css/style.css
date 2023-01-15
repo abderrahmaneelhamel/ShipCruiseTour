@@ -1168,7 +1168,7 @@ testimonials
   top: 0;
   bottom: 0;
   width: 100%;
-  background-color: rgba(0,0,0,0.95);
+  background-color: rgba(0,0,0,0.75);
   opacity: 0;
   visibility: hidden;
   -webkit-transition: all 0.5s ease 0s;

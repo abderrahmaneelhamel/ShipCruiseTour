@@ -1,0 +1,6 @@
+;
+name ; : abdo
+cruise ; : 3
+price ; : 550
+reservation date ; : 2022-12-30
+room type ; : Suite

@@ -9,25 +9,26 @@
 <h1>Footer</h1>
 <code>Footer()</code>
 <h2>Description</h2>
-This method is used to render the page footer. It is automatically called by AddPage() and
-Close() and should not be called directly by the application. The implementation in FPDF is
-empty, so you have to subclass it and override the method if you want a specific processing.
-<h2>Example</h2>
+Cette méthode permet de définir le pied de page. Elle est appelée automatiquement par
+AddPage() et Close() et ne devrait donc pas être appelée explicitement par l'application.
+L'implémentation de Footer() dans FPDF est vide, donc vous devez dériver la classe et
+redéfinir la méthode si vous voulez un traitement particulier pour vos pieds de page.
+<h2>Exemple</h2>
 <div class="doc-source">
 <pre><code>class PDF extends FPDF
 {
     function Footer()
     {
-        // Go to 1.5 cm from bottom
+        // Positionnement à 1,5 cm du bas
         $this-&gt;SetY(-15);
-        // Select Arial italic 8
+        // Police Arial italique 8
         $this-&gt;SetFont('Arial', 'I', 8);
-        // Print centered page number
+        // Numéro de page centré
         $this-&gt;Cell(0, 10, 'Page '.$this-&gt;PageNo(), 0, 0, 'C');
     }
 }</code></pre>
 </div>
-<h2>See also</h2>
+<h2>Voir</h2>
 <a href="header.htm">Header</a>
 <hr style="margin-top:1.5em">
 <div style="text-align:center"><a href="index.htm">Index</a></div>

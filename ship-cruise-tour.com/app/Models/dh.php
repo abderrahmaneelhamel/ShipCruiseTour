@@ -88,7 +88,7 @@ class dh {
     function searchReservations($name,$id){
         $test = new connection;
         $conn = $test->connection();
-        $sql = "SELECT r.`id`, u.firstName, r.cruise , r.`reservation-date`, r.`reservation-price` , c.label FROM clients u , reservation r , category c where r.costumer = u.id and r.room = c.id and r.costumer = $id and c.label like '%".$name."%';";
+        $sql = "SELECT r.`id`, u.firstName, r.cruise , r.`reservation-date`, r.`reservation-price` , c.label , i.`date-of-departure`  FROM clients u , reservation r , category c , cruises i where r.costumer = u.id and r.room = c.id and r.costumer = $id and i.`id-cruise` = r.cruise and c.label like '%".$name."%';";
         $resultat = mysqli_query($conn,$sql);
         return $resultat;
     }
@@ -117,7 +117,7 @@ class dh {
                 $id = $row['id'];
             }
         }
-        $sql1 = "SELECT r.`id`, u.firstName, r.cruise , r.`reservation-date`, r.`reservation-price` , c.label FROM clients u , reservation r , category c where r.costumer = u.id and r.room = c.id  and costumer = $id";
+        $sql1 = "SELECT r.`id`, u.firstName, r.cruise , r.`reservation-date`, r.`reservation-price` , c.label , i.`date-of-departure` FROM clients u , reservation r , category c , cruises i where r.costumer = u.id and r.room = c.id and costumer = $id and i.`id-cruise` = r.cruise;";
         $resultat1 = mysqli_query($conn,$sql1);
         return $resultat1;
     }

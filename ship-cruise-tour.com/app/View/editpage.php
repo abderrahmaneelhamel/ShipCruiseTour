@@ -40,7 +40,7 @@
                     <div class="row">
                         <label style="color:rgb(10 82 189);" class="log">ship</label>
                         <select class="form-control" name="ship" id="ship" onChange="getSubCat(this.value);" required="">
-                            <option value="">Select ship </option>
+                            <option value="<?php echo $row['ship'] ?>">selected</option>
                             <?php
                             foreach ($resultat1->fetch_all(MYSQLI_ASSOC) as $row1) {
                             ?>
@@ -63,7 +63,7 @@
                     <div class="row">
                         <label class="log" style="color:rgb(10 82 189);">port of departure</label>
                         <select class="form-control" name="port-of-departure" id="port-of-departure" onChange="getSubCat(this.value);" required="">
-                            <option value="">Select port of departure </option>
+                            <option value="<?php echo $row['port-of-departure'] ?>">selected</option>
                             <?php
                             foreach ($resultat2->fetch_all(MYSQLI_ASSOC) as $row2) {
                             ?>

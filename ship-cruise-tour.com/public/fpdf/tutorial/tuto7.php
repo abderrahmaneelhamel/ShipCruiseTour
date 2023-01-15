@@ -6,6 +6,6 @@ $pdf = new FPDF();
 $pdf->AddFont('CevicheOne','','CevicheOne-Regular.php');
 $pdf->AddPage();
 $pdf->SetFont('CevicheOne','',45);
-$pdf->Cell(0,10,'Enjoy new fonts with FPDF!');
+$pdf->Cell(0,10,'Changez de police avec FPDF !');
 $pdf->Output();
 ?>

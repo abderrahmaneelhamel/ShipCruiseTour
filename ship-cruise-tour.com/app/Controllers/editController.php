@@ -38,18 +38,18 @@ class editController {
             
                 if ($uploadOk == 0) {
                     echo "Sorry, your file was not uploaded.";
-                    echo "<a href='dachBoard'>return to dachBoard</a>";
+                    echo "<a href='cruises'>return to cruises</a>";
                 } else {
                     if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {                    
                         $image = "uploads/" . $_FILES["image"]["name"];
                         $update = new edit;
                         $resultat=$update->edit($ship,$price,$image,$numOfNights,$portOfDeparture,$cruiseItinerary,$dateOfDeparture,$ID);
                         if ($resultat) {
-                          header("Location:dachBoard");
+                          header("Location:cruises");
                         }
                     } else {
                         echo "<span style:'color: black;'>Sorry, there was an error uploading your file.</span><br>";
-                        echo "<a href='dachBoard'>return to dachBoard</a>";
+                        echo "<a href='cruises'>return to cruises</a>";
                     }
                   }
         }else{
@@ -57,7 +57,7 @@ class editController {
           $update = new edit;
           $resultat=$update->edit($ship,$price,$image,$numOfNights,$portOfDeparture,$cruiseItinerary,$dateOfDeparture,$ID);
           if ($resultat) {
-            header("Location:dachBoard");
+            header("Location:cruises");
           }
         }
       }

@@ -9,36 +9,37 @@
 <h1>Rect</h1>
 <code>Rect(<b>float</b> x, <b>float</b> y, <b>float</b> w, <b>float</b> h [, <b>string</b> style])</code>
 <h2>Description</h2>
-Outputs a rectangle. It can be drawn (border only), filled (with no border) or both.
-<h2>Parameters</h2>
+Dessine un rectangle à partir de son coin supérieur gauche. Il peut être tracé, rempli ou les
+deux à la fois.
+<h2>Paramètres</h2>
 <dl class="param">
 <dt><code>x</code></dt>
 <dd>
-Abscissa of upper-left corner.
+Abscisse du coin supérieur gauche.
 </dd>
 <dt><code>y</code></dt>
 <dd>
-Ordinate of upper-left corner.
+Ordonnée du coin supérieur gauche.
 </dd>
 <dt><code>w</code></dt>
 <dd>
-Width.
+Largeur.
 </dd>
 <dt><code>h</code></dt>
 <dd>
-Height.
+Hauteur.
 </dd>
 <dt><code>style</code></dt>
 <dd>
-Style of rendering. Possible values are:
+Manière de tracer le rectangle. Les valeurs possibles sont :
 <ul>
-<li><code>D</code> or empty string: draw. This is the default value.</li>
-<li><code>F</code>: fill</li>
-<li><code>DF</code> or <code>FD</code>: draw and fill</li>
+<li><code>D</code> ou chaîne vide : contour (draw). C'est la valeur par défaut.
+<li><code>F</code> : remplissage (fill)
+<li><code>DF</code> ou <code>FD</code> : contour et remplissage
 </ul>
 </dd>
 </dl>
-<h2>See also</h2>
+<h2>Voir</h2>
 <a href="setlinewidth.htm">SetLineWidth</a>,
 <a href="setdrawcolor.htm">SetDrawColor</a>,
 <a href="setfillcolor.htm">SetFillColor</a>

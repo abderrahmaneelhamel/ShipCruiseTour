@@ -9,30 +9,31 @@
 <h1>AddPage</h1>
 <code>AddPage([<b>string</b> orientation [, <b>mixed</b> size [, <b>int</b> rotation]]])</code>
 <h2>Description</h2>
-Adds a new page to the document. If a page is already present, the Footer() method is called
-first to output the footer. Then the page is added, the current position set to the top-left
-corner according to the left and top margins, and Header() is called to display the header.
+Ajoute une nouvelle page au document. Si une page était en cours, la méthode Footer() est
+appelée pour traiter le pied de page. Puis la page est ajoutée, la position courante
+mise en haut à gauche en fonction des marges gauche et haute, et Header() est appelée
+pour afficher l'en-tête.
 <br>
-The font which was set before calling is automatically restored. There is no need to call
-SetFont() again if you want to continue with the same font. The same is true for colors and
-line width.
+La police qui était en cours au moment de l'appel est automatiquement restaurée. Il n'est
+donc pas nécessaire d'appeler à nouveau SetFont() si vous souhaitez continuer avec la même
+police. Même chose pour les couleurs et l'épaisseur du trait.
 <br>
-The origin of the coordinate system is at the top-left corner and increasing ordinates go
-downwards.
-<h2>Parameters</h2>
+L'origine du système de coordonnées est en haut à gauche et les ordonnées croissantes vont
+vers le bas.
+<h2>Paramètres</h2>
 <dl class="param">
 <dt><code>orientation</code></dt>
 <dd>
-Page orientation. Possible values are (case insensitive):
+Orientation de la page. Les valeurs possibles sont (indépendamment de la casse) :
 <ul>
-<li><code>P</code> or <code>Portrait</code></li>
-<li><code>L</code> or <code>Landscape</code></li>
+<li><code>P</code> ou <code>Portrait</code></li>
+<li><code>L</code> ou <code>Landscape</code></li>
 </ul>
-The default value is the one passed to the constructor.
+La valeur par défaut est celle indiquée dans le constructeur.
 </dd>
 <dt><code>size</code></dt>
 <dd>
-Page size. It can be either one of the following values (case insensitive):
+Format de la page. Il peut s'agir d'une des valeurs ci-dessous (indépendamment de la casse) :
 <ul>
 <li><code>A3</code></li>
 <li><code>A4</code></li>
@@ -40,17 +41,17 @@ Page size. It can be either one of the following values (case insensitive):
 <li><code>Letter</code></li>
 <li><code>Legal</code></li>
 </ul>
-or an array containing the width and the height (expressed in user unit).<br>
+ou bien d'un tableau contenant la largeur et la hauteur (exprimées en unité utilisateur).<br>
 <br>
-The default value is the one passed to the constructor.
+La valeur par défaut est celle indiquée dans le constructeur.
 </dd>
 <dt><code>rotation</code></dt>
 <dd>
-Angle by which to rotate the page. It must be a multiple of 90; positive values
-mean clockwise rotation. The default value is <code>0</code>.
+Angle de rotation de la page. La valeur doit être un multiple de 90 ; la rotation se fait
+dans le sens horaire. La valeur par défaut est <code>0</code>.
 </dd>
 </dl>
-<h2>See also</h2>
+<h2>Voir</h2>
 <a href="__construct.htm">__construct</a>,
 <a href="header.htm">Header</a>,
 <a href="footer.htm">Footer</a>,

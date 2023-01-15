@@ -54,7 +54,7 @@
 </ul>
 </div>
 <div>
-<br>    
+    <a href="addNew" class="btn btn-outline-primary m-2 mb-3">ADD CRUISE</a>
 </div>
 <div style="width: 100% !important; overflow-x: scroll;">
 <table class="table table-light table-striped table-hover text-center">

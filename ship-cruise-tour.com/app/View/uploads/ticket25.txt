@@ -1,0 +1,6 @@
+;
+name ; : abdo
+cruise ; : 3
+price ; : 350
+reservation date ; : 2023-01-04
+room type ; : room for 2 personnes 

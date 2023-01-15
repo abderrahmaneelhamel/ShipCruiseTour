@@ -3,30 +3,30 @@ require('../fpdf.php');
 
 class PDF extends FPDF
 {
-protected $col = 0; // Current column
-protected $y0;      // Ordinate of column start
+protected $col = 0; // Colonne courante
+protected $y0;      // Ordonnée du début des colonnes
 
 function Header()
 {
-	// Page header
-	global $title;
+	// En-tête
+	global $titre;
 
 	$this->SetFont('Arial','B',15);
-	$w = $this->GetStringWidth($title)+6;
+	$w = $this->GetStringWidth($titre)+6;
 	$this->SetX((210-$w)/2);
 	$this->SetDrawColor(0,80,180);
 	$this->SetFillColor(230,230,0);
 	$this->SetTextColor(220,50,50);
 	$this->SetLineWidth(1);
-	$this->Cell($w,9,$title,1,1,'C',true);
+	$this->Cell($w,9,$titre,1,1,'C',true);
 	$this->Ln(10);
-	// Save ordinate
+	// Sauvegarde de l'ordonnée
 	$this->y0 = $this->GetY();
 }
 
 function Footer()
 {
-	// Page footer
+	// Pied de page
 	$this->SetY(-15);
 	$this->SetFont('Arial','I',8);
 	$this->SetTextColor(128);
@@ -35,7 +35,7 @@ function Footer()
 
 function SetCol($col)
 {
-	// Set position at a given column
+	// Positionnement sur une colonne
 	$this->col = $col;
 	$x = 10+$col*65;
 	$this->SetLeftMargin($x);
@@ -44,66 +44,66 @@ function SetCol($col)
 
 function AcceptPageBreak()
 {
-	// Method accepting or not automatic page break
+	// Méthode autorisant ou non le saut de page automatique
 	if($this->col<2)
 	{
-		// Go to next column
+		// Passage à la colonne suivante
 		$this->SetCol($this->col+1);
-		// Set ordinate to top
+		// Ordonnée en haut
 		$this->SetY($this->y0);
-		// Keep on page
+		// On reste sur la page
 		return false;
 	}
 	else
 	{
-		// Go back to first column
+		// Retour en première colonne
 		$this->SetCol(0);
-		// Page break
+		// Saut de page
 		return true;
 	}
 }
 
-function ChapterTitle($num, $label)
+function TitreChapitre($num, $libelle)
 {
-	// Title
+	// Titre
 	$this->SetFont('Arial','',12);
 	$this->SetFillColor(200,220,255);
-	$this->Cell(0,6,"Chapter $num : $label",0,1,'L',true);
+	$this->Cell(0,6,"Chapitre $num : $libelle",0,1,'L',true);
 	$this->Ln(4);
-	// Save ordinate
+	// Sauvegarde de l'ordonnée
 	$this->y0 = $this->GetY();
 }
 
-function ChapterBody($file)
+function CorpsChapitre($fichier)
 {
-	// Read text file
-	$txt = file_get_contents($file);
-	// Font
+	// Lecture du fichier texte
+	$txt = file_get_contents($fichier);
+	// Police
 	$this->SetFont('Times','',12);
-	// Output text in a 6 cm width column
+	// Sortie du texte sur 6 cm de largeur
 	$this->MultiCell(60,5,$txt);
 	$this->Ln();
 	// Mention
 	$this->SetFont('','I');
-	$this->Cell(0,5,'(end of excerpt)');
-	// Go back to first column
+	$this->Cell(0,5,"(fin de l'extrait)");
+	// Retour en première colonne
 	$this->SetCol(0);
 }
 
-function PrintChapter($num, $title, $file)
+function AjouterChapitre($num, $titre, $fichier)
 {
-	// Add chapter
+	// Ajout du chapitre
 	$this->AddPage();
-	$this->ChapterTitle($num,$title);
-	$this->ChapterBody($file);
+	$this->TitreChapitre($num,$titre);
+	$this->CorpsChapitre($fichier);
 }
 }
 
 $pdf = new PDF();
-$title = '20000 Leagues Under the Seas';
-$pdf->SetTitle($title);
+$titre = 'Vingt mille lieues sous les mers';
+$pdf->SetTitle($titre);
 $pdf->SetAuthor('Jules Verne');
-$pdf->PrintChapter(1,'A RUNAWAY REEF','20k_c1.txt');
-$pdf->PrintChapter(2,'THE PROS AND CONS','20k_c2.txt');
+$pdf->AjouterChapitre(1,'UN ÉCUEIL FUYANT','20k_c1.txt');
+$pdf->AjouterChapitre(2,'LE POUR ET LE CONTRE','20k_c2.txt');
 $pdf->Output();
 ?>
