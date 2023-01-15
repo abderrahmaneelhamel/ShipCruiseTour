@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 30 déc. 2022 à 17:02
+-- Généré le : dim. 15 jan. 2023 à 12:25
 -- Version du serveur : 10.4.25-MariaDB
 -- Version de PHP : 8.1.10
 
@@ -70,6 +70,28 @@ INSERT INTO `clients` (`id`, `fullName`, `firstName`, `email`, `password`, `role
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `contact`
+--
+
+CREATE TABLE `contact` (
+  `id` int(11) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `subject` varchar(50) NOT NULL,
+  `massage` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `contact`
+--
+
+INSERT INTO `contact` (`id`, `name`, `phone`, `email`, `subject`, `massage`) VALUES
+(1, 'abderrahmane', '066676637', 'abderrahmane@gmail.com', 'test', 'good job');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `cruises`
 --
 
@@ -89,10 +111,10 @@ CREATE TABLE `cruises` (
 --
 
 INSERT INTO `cruises` (`id-cruise`, `ship`, `price`, `img`, `num-of-nights`, `port-of-departure`, `cruise-itinerary`, `date-of-departure`) VALUES
-(1, 1, 300, 'uploads/cruise1.jpg', 5, 1, 'tanger-gibraltar-palma', '2022-12-31'),
-(2, 2, 150, 'uploads/ship3.jpg', 6, 3, 'Piraeus-Venice-tanger', '2022-12-31'),
-(3, 3, 250, 'uploads/ship6.jpg', 4, 2, 'NewYork-tanger-Venice', '2023-01-01'),
-(4, 4, 300, 'uploads/ship8.jpg', 7, 4, 'Piraeus-tanger-newYork', '2023-01-02');
+(1, 1, 300, 'uploads/cruise1.jpg', 4, 1, 'tanger-gibraltar-palma', '2023-01-15'),
+(2, 2, 150, 'uploads/ship3.jpg', 6, 4, 'Piraeus-Venice-tanger', '2022-12-30'),
+(3, 3, 250, 'uploads/ship6.jpg', 4, 2, 'NewYork-tanger-Venice', '2023-01-14'),
+(4, 4, 300, 'uploads/ship8.jpg', 7, 4, 'Piraeus-tanger-newYork', '2023-01-11');
 
 -- --------------------------------------------------------
 
@@ -168,7 +190,10 @@ INSERT INTO `reservation` (`id`, `costumer`, `cruise`, `reservation-date`, `rese
 (19, 10, 1, '2022-12-30', 400, 2),
 (21, 3, 4, '2022-12-30', 500, 3),
 (22, 3, 3, '2022-12-30', 550, 4),
-(23, 3, 2, '2022-12-30', 250, 2);
+(23, 3, 2, '2022-12-30', 250, 2),
+(24, 2, 4, '2023-01-02', 500, 3),
+(25, 3, 3, '2023-01-04', 350, 2),
+(26, 2, 1, '2023-01-13', 400, 2);
 
 -- --------------------------------------------------------
 
@@ -219,7 +244,10 @@ INSERT INTO `rooms` (`id`, `ship`, `room-type`, `price`, `capacity`) VALUES
 (29, 1, 2, 400, 2),
 (30, 4, 3, 500, 6),
 (31, 3, 4, 550, 2),
-(32, 2, 2, 250, 2);
+(32, 2, 2, 250, 2),
+(33, 4, 3, 500, 6),
+(34, 3, 2, 350, 2),
+(35, 1, 2, 400, 2);
 
 -- --------------------------------------------------------
 
@@ -239,10 +267,10 @@ CREATE TABLE `ship` (
 --
 
 INSERT INTO `ship` (`id`, `name`, `num-of-rooms`, `num-of-places`) VALUES
-(1, 'titanic', 5, 3),
+(1, 'titanic', 5, 5),
 (2, 'Wonder of the Sea', 5, 2),
-(3, 'White Mansion', 10, 8),
-(4, 'grand Sailor', 15, 6);
+(3, 'White Mansion', 10, 10),
+(4, 'grand Sailor', 15, 12);
 
 --
 -- Index pour les tables déchargées
@@ -260,6 +288,12 @@ ALTER TABLE `category`
 ALTER TABLE `clients`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Index pour la table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `cruises`
@@ -323,6 +357,12 @@ ALTER TABLE `clients`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT pour la table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT pour la table `cruises`
 --
 ALTER TABLE `cruises`
@@ -344,13 +384,13 @@ ALTER TABLE `port`
 -- AUTO_INCREMENT pour la table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT pour la table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT pour la table `ship`
