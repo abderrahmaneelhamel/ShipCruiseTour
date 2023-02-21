@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../app/View/assets/images/shipCruiseTour.png" type="image/x-icon">
-    <title>Luxury Gems</title>
+    <title>Ship cruise tour</title>
     <meta name="Description" content="Jewellery store for selling Jewellery like rings and necklaces">
     <meta name="Keyword" content="Jewellery store,rings,necklaces">
     <meta name="author" content="Jewellery store">
@@ -73,25 +73,60 @@
 
         <div class="card bg-glass">
           <div class="card-body px-4 py-5 px-md-5">
-            <form method="post">
-            <h5>Login to your account</h5><br>
+          <form method="post" id="theForm">
+              <h5>Login to your account</h5><br>
               <div class="form-outline mb-4">
-                <input type="email" id="form3Example3" name="user-email" class="form-control" placeholder="Email address" />
+                <input type="email" id="email" name="user-email" class="form-control" placeholder="Email address" />
+                <label id="emailMsg" for="email" style="color: red;"></label>
               </div>
               <div class="form-outline mb-4">
-                <input type="password" id="form3Example4" name="password" class="form-control" placeholder="Password"/>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Password"/>
+                <label id="passwordMsg" for="password" style="color: red;"></label>
               </div>
-              <input type="submit" name="submit" class="btn btn-primary btn-block mb-4" value="Login">
+              <button onclick="return SubmitForm()" name="submit" class="btn btn-primary btn-block mb-4" >Login</button>
               <div class="d-flex align-items-center justify-content-center pb-4">
                     <p class="mb-0 me-2">Don't have an account?</p>
                     <a style="margin-left: 10px; " href="signuppage" class="btn btn-outline-primary">Create new</a>
               </div>
-            </form>
+          </form>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+<script>
+  function SubmitForm(){
+    const regExp = /^([a-zA-Z0-9-_.]+)@([a-zA-Z0-9]+).([a-zA-Z]{2,10})(.[a-zA-Z]{2,8})?$/
+    var email = document.getElementById("email");
+    var password = document.getElementById("password");
+    password.style.border = "solid grey 1px";
+    email.style.border = "solid grey 1px";
+    var emailMsg = document.getElementById("emailMsg");
+    var passwordMsg = document.getElementById("passwordMsg");
+    passwordMsg.innerHTML = "";
+    emailMsg.innerHTML = "";
+    var ok = 1;
+    if(password.value == ""){
+        password.style.border = "solid red 1px";
+        passwordMsg.innerHTML = "* please fill";
+        ok = 0;
+    }
+    if(email.value == ""){
+        email.style.border = "solid red 1px";
+        emailMsg.innerHTML = "* please fill";
+        ok = 0;
+    }else if (!(regExp.test(email.value))) {
+        email.style.border = "solid red 1px";
+        emailMsg.innerHTML = "* Invalid Email";
+        ok = 0;
+    }    
+    if(ok == 1){
+        document.getElementById("theForm").submit();
+    }else{
+        return false;
+    }
+}
+</script>
 </body>
 </html>

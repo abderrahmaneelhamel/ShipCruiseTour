@@ -1,0 +1,7 @@
+;
+name ; : abderrahmane
+cruise ; : 4
+price ; : 300
+reservation date ; : 2023-02-06
+date of departure ; : 2023-02-07
+room type ; : solo room

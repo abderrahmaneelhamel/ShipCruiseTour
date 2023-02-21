@@ -52,6 +52,9 @@
 <div>
 <br>    
 </div>
+<div>
+    <a href="addPort" class="btn btn-outline-primary m-2 mb-3">ADD PORT</a>
+</div>
 <div style="width: 100% !important; overflow-x: scroll;">
 <table class="table table-light table-striped table-hover text-center">
   <thead class="table-light">

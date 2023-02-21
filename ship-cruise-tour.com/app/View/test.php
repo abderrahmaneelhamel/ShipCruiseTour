@@ -83,8 +83,18 @@ fetch('https://online-movie-database.p.rapidapi.com/auto-complete?q=<?php echo $
          const list = data.d;
         list.map((item) => {
             const name = item.l;
+            const description = item.s;
             const poster =item.i.imageUrl;
             const movie = `<li><img src ="${poster}"> <h2>${name}</h2></li>`;
+            let formData = new FormData();
+            formData.append('title', name );
+            formData.append('image', poster);
+            formData.append('description', description);
+            const options2 = {
+                method: 'POST',
+                body : formData
+            };
+            fetch('http://cinehallApi.com/createmovie', options2).catch(err => console.error(err));
             document.querySelector('.movies').innerHTML+=movie;
         })
         })

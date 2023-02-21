@@ -2,7 +2,7 @@
 ob_start();
 require_once '../app/Controllers/HomeController.php';
 $home = new HomeController();
-$pages = ['login','signuppage','test','test2','test3'];
+$pages = ['login','signuppage','test','test2','test3','test4'];
 if(isset($_GET['page'])){
     if($_GET['page']==="dachBoard"){
         $home->dachboard();

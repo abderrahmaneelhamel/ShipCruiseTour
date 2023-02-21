@@ -31,7 +31,9 @@
                             foreach ($resultat1->fetch_all(MYSQLI_ASSOC) as $row1) {
                             ?>
                                 <option value="<?php echo $row1['id']; ?>"> <?php echo $row1['name']; ?></option>
-                            <?php } ?>
+                            <?php 
+                        } 
+                        ?>
                         </select>
                     </div>
                     <div class="row">
@@ -59,7 +61,13 @@
                     </div>
                     <div class="row">
                         <label class="log" style="color:rgb(10 82 189);">cruise itinerary</label>
-                        <input type="text" class="form-control" name="cruise-itinerary" placeholder="cruise itinerary" required>
+                        <select class="form-control" name="cruise-itinerary" id="cruise-itinerary" required>
+                            <option value="">choose an itinarary</option>
+                            <option value="tanger-gibraltar-palma">tanger-gibraltar-palma</option>
+                            <option value="Piraeus-Venice-tanger">Piraeus-Venice-tanger</option>
+                            <option value="NewYork-tanger-Venice">NewYork-tanger-Venice</option>
+                            <option value="Piraeus-tanger-newYork">Piraeus-tanger-newYork</option>
+                        </select>
                     </div>
                     <div class="row">
                         <label class="log" style="color:rgb(10 82 189);">date-of-departure</label>

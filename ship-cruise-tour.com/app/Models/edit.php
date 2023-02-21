@@ -33,6 +33,13 @@ class edit {
         $resultat1 = mysqli_query($conn,$sql);
         return $resultat1;
     }
+    function list3(){
+        $test = new connection;
+        $conn = $test->connection();
+        $sql="SELECT * FROM `ship` AS S WHERE S.id NOT IN ( SELECT S.id FROM `ship` AS S JOIN `cruises` AS C ON S.id = c.ship );";
+        $resultat1 = mysqli_query($conn,$sql);
+        return $resultat1;
+    }
     function list2(){
         $test = new connection;
         $conn = $test->connection();

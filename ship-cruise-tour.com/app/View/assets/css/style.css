@@ -9,6 +9,38 @@ figure, header, nav, section, article, aside, footer, figcaption {
   border: 0;
   outline: 0;
 }
+.page {
+  display: none !important;
+}
+.page-active {
+  display: flex !important;
+}
+.pagination {
+  display: inline-block;
+}
+
+.pagination button {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  margin: 2px;
+  border: 0px solid black;
+  border-radius: 15px;
+  text-decoration: none;
+}
+
+.pagination button.activeB {
+  background-color: #4CAF50;
+  margin: 2px;
+  color: white;
+  border: 0px solid black;
+  border-radius: 15px;
+}
+
+.pagination button:hover:not(.activeB) {
+  background-color: #ddd;
+  border-radius: 15px;
+}
 .disconnect{
   border: solid 1px green !important;
   border-radius: 5px;

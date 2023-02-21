@@ -60,7 +60,7 @@
 <tr><td>    
   <?php 
         if($row['date-of-departure'] > date("Y-m-d", strtotime("+1 days"))){
-          echo '<a href="bd?id='.$row['id'].' class="link-primary"><i class="fa-solid fa-trash fs-6 me-3"></i></a>';
+          echo '<a href="bd?id='.$row['id'].'" class="link-primary"><i class="fa-solid fa-trash fs-6 me-3"></i></a>';
         }
   ?>  
       </td>
@@ -82,6 +82,8 @@
          $txt = "price ; : ".$row['reservation-price']."\n";
          fwrite($myfile, $txt);
          $txt = "reservation date ; : ".$row['reservation-date']."\n";
+         fwrite($myfile, $txt);
+         $txt = "date of departure ; : ".$row['date-of-departure']."\n";
          fwrite($myfile, $txt);
          $txt = "room type ; : ".$row['label']."\n";
          fwrite($myfile, $txt);

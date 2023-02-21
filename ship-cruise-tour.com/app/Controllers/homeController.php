@@ -163,7 +163,7 @@ class HomeController{
         }
         require("addNewController.php");
         $list = new edit;
-        $resultat1=$list->list1();
+        $resultat1=$list->list3();
         $resultat2=$list->list2();
         require("../app/View/addNew.php");
         $test = new addNewController;

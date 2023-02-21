@@ -79,9 +79,10 @@ class dh {
         return $ret;
     }
     function search($name){
+        $nam = str_replace("2023-", "", $name);
         $test = new connection;
         $conn = $test->connection();
-        $sql = "SELECT c.`id-cruise`, s.name,s.`num-of-rooms`, s.`num-of-places`, c.price , c.img, c.`num-of-nights`, p.port, c.`cruise-itinerary`, c.`date-of-departure` FROM cruises c , ship s ,port p where c.ship=s.id and c.`port-of-departure`=p.id and c.`date-of-departure` like '%".$name."%';";
+        $sql = "SELECT c.`id-cruise`, s.name,s.`num-of-rooms`, s.`num-of-places`, c.price , c.img, c.`num-of-nights`, p.port, c.`cruise-itinerary`, c.`date-of-departure` FROM cruises c , ship s ,port p where c.ship=s.id and c.`port-of-departure`=p.id and MONTH(c.`date-of-departure`) = '$nam';";
         $resultat = mysqli_query($conn,$sql);
         return $resultat;
     }

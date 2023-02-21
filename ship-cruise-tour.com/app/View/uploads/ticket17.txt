@@ -1,7 +1,7 @@
-************************ YOUR TICKET ****************************
-*name : abderrahmane
-*cruise : 3
-*price : 450
-*reservation date : 2022-12-30
-*room type : family room
-*****************************************************************
+;
+name ; : abderrahmane
+cruise ; : 3
+price ; : 450
+reservation date ; : 2022-12-30
+date of departure ; : 2023-01-27
+room type ; : family room

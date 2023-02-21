@@ -119,7 +119,7 @@
                       <details>
                             <summary>Click to view more</summary>
                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus cupiditate illo facere quaerat debitis, molestias delectus blanditiis tempore? Omnis nemo iure temporibus numquam vero atque eaque impedit! Consequuntur, natus quos! .</p>
-                        </details>
+                    </details>
                     </div>
                 </div>
             </div>
@@ -283,7 +283,7 @@
                         <div style="width: 100%;" class="d-flex search">
                         <div class="d-flex justify-content-center my-2">
                         <form style="width: 100%;" class="d-flex" role="search" method="POST">
-                            <input class="form-control me-3" name="date" placeholder="Search by date" aria-label="Search">
+                            <input class="form-control me-3" type="month" name="date" placeholder="Search by month" aria-label="Search">
                             <input style="height: 40px;" type="submit" name="search" class="btn btn-outline-light" value="search">
                         </form>
                         </div>
@@ -317,9 +317,18 @@
                     </div>
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12 mobile-bottom-fix-big" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                    <div class="d-flex owl-theme" style="flex-wrap:wrap;">
+                    <div class="owl-theme page-active" style="flex-wrap:wrap;" id="page1">
                     <?php
+                    $count = 0;
+                    $count1 = 1;
                     while($row = mysqli_fetch_assoc($resultat)){
+                        $count++;
+                        if($count>4){
+                            $count=0;
+                            $count1++;
+                            echo '</div>
+                            <div class="owl-theme page" style="flex-wrap:wrap;" id="page'.$count1.'">';
+                        }
                         if(($row['date-of-departure']>= date("Y-m-d")) && isset($_SESSION['user']) && ($row['num-of-places'] < $row['num-of-rooms'])){
                     ?>    
                        <div data-aos="zoom-in" class="item author-item mx-1" style="width: 550px;">
@@ -410,7 +419,17 @@
                         }
                         }
                         ?>
-                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center" style="width: 100%; flex-wrap: wrap;">
+                    <div class="pagination">
+                    <button onclick="page(1)" class="paginationButton1 activeB">1</button>
+                    <?php
+                        for($i=2;$i<=$count1;$i++){
+                            echo '<button onclick="page('.$i.')" class="paginationButton2">'.$i.'</button>';
+                        }
+                    ?>  
+                    </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -539,6 +558,16 @@
         function clossse(){
             var d = document.querySelector("#itinarary");
             d.style.display = "none";
+        }
+        function page(num){
+            document.querySelector('.activeB').classList.remove('activeB');
+            document.querySelector('.page-active').classList.add('page');
+            document.querySelector('.page-active').classList.remove('page-active');
+            if(document.querySelector('.paginationButton'+num).innerHTML == num){
+                document.querySelector('.paginationButton'+num).classList.add('activeB');
+                document.querySelector('#page'+num).classList.remove('page');
+                document.querySelector('#page'+num).classList.add('page-active');
+            }
         }
     </script>
   </body>

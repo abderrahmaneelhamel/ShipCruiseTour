@@ -3,4 +3,5 @@ name ; : abdo
 cruise ; : 3
 price ; : 350
 reservation date ; : 2023-01-04
+date of departure ; : 2023-01-27
 room type ; : room for 2 personnes 
