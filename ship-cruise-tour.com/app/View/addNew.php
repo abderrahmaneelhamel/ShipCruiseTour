@@ -59,22 +59,20 @@
                             <?php } ?>
                         </select>
                     </div>
-                    <div class="row">
-                        <label class="log" style="color:rgb(10 82 189);">cruise itinerary</label>
-                        <select class="form-control" name="cruise-itinerary" id="cruise-itinerary" required>
-                            <option value="">choose an itinarary</option>
-                            <option value="tanger-gibraltar-palma">tanger-gibraltar-palma</option>
-                            <option value="Piraeus-Venice-tanger">Piraeus-Venice-tanger</option>
-                            <option value="NewYork-tanger-Venice">NewYork-tanger-Venice</option>
-                            <option value="Piraeus-tanger-newYork">Piraeus-tanger-newYork</option>
-                        </select>
+                    <label class="log" style="color:rgb(10 82 189);">cruise itinerary</label>
+                    <div class="my-4 d-flex flex-row">
+                    <?php
+                        foreach($resultat6->fetch_all(MYSQLI_ASSOC) as $row6) {
+                    ?>
+                        <input type="checkbox" name="itinerary<?php echo $row6['id']; ?>" class="btn-check" id="btn-check-<?php echo $row6['id']; ?>-outlined">
+                        <label class="mr-3 btn btn-outline-primary" for="btn-check-<?php echo $row6['id']; ?>-outlined"><?php echo $row6['port']; ?></label><br>
+                    <?php } ?>
                     </div>
                     <div class="row">
                         <label class="log" style="color:rgb(10 82 189);">date-of-departure</label>
                         <input type="date" class="form-control" name="date-of-departure"  required>
                     </div>
                 </div>
-                
                 <div class="col ret">
                     <div class="sub">
                         <input  type="submit" class="btn btn-outline-primary mb-4" name="submit" value="Add">

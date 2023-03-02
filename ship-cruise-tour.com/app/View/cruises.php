@@ -56,6 +56,24 @@
 <div>
     <a href="addNew" class="btn btn-outline-primary m-2 mb-3">ADD CRUISE</a>
 </div>
+<?php if(isset($resultat0)){ ?>
+    <div id="itinarary" style="position: fixed; z-index: 990;top: 0px; background: transparent;backdrop-filter: blur(10px);width: 100%;height: 100%;display: flex;align-items: center;justify-content: center;">
+    <div style="border-radius: 20px; background-color: white;width: 50%;height: 50%;display: flex;align-items: center;justify-content: center;">
+        <a href="cruises"><img style="position: absolute;top: 160px;left: 877px;"  src="../app/View/assets/images/close.png"></a>
+        <?php 
+                $id = 1;
+                while($row0 = mysqli_fetch_assoc($resultat0)){
+                    ?> <div style="display: flex;flex-direction: column;align-items: center;justify-content: center;margin:10px;">
+                        <div style='color: black; margin:5px;'>The port <?php echo $id?>:<?php echo $row0['port']?></div>
+                        <div style='color: black; margin:5px;'>The country :<?php echo $row0['country']?></div>
+                    </div>
+                    <?php 
+                $id++;    
+            }
+            }
+            ?>
+        </div>
+        </div>
 <div style="width: 100% !important; overflow-x: scroll;">
 <table class="table table-light table-striped table-hover text-center">
   <thead class="table-light">
@@ -90,7 +108,12 @@
       <td><?php echo $row['price'] ?></td>
       <td><?php echo $row['num-of-nights'] ?></td>
       <td><?php echo $row['port'] ?></td>
-      <td><?php echo $row['cruise-itinerary'] ?></td>
+      <td>
+        <form method="post">
+            <input style="display: none;" type="text" name="cruise" value="<?php echo $row['id-cruise']?>">
+            <input type="submit" class="btn btn-outline-dark" name="itinarary" value="View">
+        </form>
+      </td>
       <td><?php echo $row['date-of-departure'] ?></td>
 
       

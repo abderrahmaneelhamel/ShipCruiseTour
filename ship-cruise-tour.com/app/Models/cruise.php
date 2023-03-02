@@ -16,5 +16,4 @@ class cruise
         $resultat = mysqli_query($conn,$sql);
         return $resultat;
     }
-
 }

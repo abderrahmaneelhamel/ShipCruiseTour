@@ -8,6 +8,13 @@ class editController {
         $numOfNights = isset($_POST["num-of-nights"]) ? $_POST["num-of-nights"] : null;
         $portOfDeparture = isset($_POST["port-of-departure"]) ? $_POST["port-of-departure"] : null;
         $cruiseItinerary = isset($_POST["cruise-itinerary"]) ? $_POST["cruise-itinerary"] : null;
+        $count = 10;
+        $itinerary = [];
+        for($i=1;$i<=$count;$i++){
+            if(isset($_POST["itinerary".$i])){
+                array_push($itinerary, $i);
+            }
+        }
         $dateOfDeparture = isset($_POST["date-of-departure"]) ? $_POST["date-of-departure"] : null;
         if (!empty($_FILES["image"]["name"])) {
           
@@ -43,10 +50,9 @@ class editController {
                     if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {                    
                         $image = "uploads/" . $_FILES["image"]["name"];
                         $update = new edit;
-                        $resultat=$update->edit($ship,$price,$image,$numOfNights,$portOfDeparture,$cruiseItinerary,$dateOfDeparture,$ID);
-                        if ($resultat) {
-                          header("Location:cruises");
-                        }
+                        $cruise=$update->edit($ship,$price,$image,$numOfNights,$portOfDeparture,$cruiseItinerary,$dateOfDeparture,$ID);
+                        $update->editItinerary($itinerary,$cruise);
+                        header("Location:cruises");
                     } else {
                         echo "<span style:'color: black;'>Sorry, there was an error uploading your file.</span><br>";
                         echo "<a href='cruises'>return to cruises</a>";
@@ -55,10 +61,9 @@ class editController {
         }else{
           $image ="";
           $update = new edit;
-          $resultat=$update->edit($ship,$price,$image,$numOfNights,$portOfDeparture,$cruiseItinerary,$dateOfDeparture,$ID);
-          if ($resultat) {
+          $cruise=$update->edit($ship,$price,$image,$numOfNights,$portOfDeparture,$cruiseItinerary,$dateOfDeparture,$ID);
+          $update->editItinerary($itinerary,$cruise);
             header("Location:cruises");
-          }
         }
       }
   }

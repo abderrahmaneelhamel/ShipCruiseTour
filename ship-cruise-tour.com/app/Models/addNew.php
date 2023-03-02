@@ -3,16 +3,26 @@
 class addNew {
 
     function addNew($ship,$price,$image,$numOfNights,$portOfDeparture,$cruiseItinerary,$dateOfDeparture){
-        
         $test = new connection;
         $conn = $test->connection();
-        $sql = "INSERT INTO `cruises` (`ship`, `price`, `img`, `num-of-nights`, `port-of-departure`, `cruise-itinerary`, `date-of-departure`) VALUES ('$ship','$price','$image','$numOfNights','$portOfDeparture','$cruiseItinerary','$dateOfDeparture')";
-        $resultat = $conn->prepare($sql);
-        $resultat->execute() or die("Erreur lors de l'execution de la requete: ");
+        $sql = "INSERT INTO `cruises` (`ship`, `price`, `img`, `num-of-nights`, `port-of-departure`, `cruise-itinerary`, `date-of-departure`) VALUES ('$ship','$price','$image','$numOfNights','$portOfDeparture','$cruiseItinerary','$dateOfDeparture');";
+        $resultat = mysqli_query($conn,$sql);
+        $sql = " SELECT LAST_INSERT_ID();";
+        $resultat = mysqli_query($conn,$sql);
+        $row = mysqli_fetch_assoc($resultat);
+        $res = $row['LAST_INSERT_ID()'];
+        return $res;
+    }
+    function addItinerary($itinerary,$cruise){
+        $test = new connection;
+        $conn = $test->connection();
+        for($i=0;$i<count($itinerary);$i++){
+            $sql = "INSERT INTO `itinarary`(`cruise`, `port`) VALUES ('$cruise','$itinerary[$i]')";
+            $resultat = mysqli_query($conn,$sql);
+        }
         if($resultat){
             header("Location:cruises");
         }
-
     }
     function book($costumer,$cruise,$price,$dateOfReservation,$room){
 

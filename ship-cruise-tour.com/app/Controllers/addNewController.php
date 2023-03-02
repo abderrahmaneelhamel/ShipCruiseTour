@@ -8,6 +8,13 @@ class addNewController {
             $numOfNights = isset($_POST["num-of-nights"]) ? $_POST["num-of-nights"] : null;
             $portOfDeparture = isset($_POST["port-of-departure"]) ? $_POST["port-of-departure"] : null;
             $cruiseItinerary = isset($_POST["cruise-itinerary"]) ? $_POST["cruise-itinerary"] : null;
+            $count = 10;
+            $itinerary = [];
+            for($i=1;$i<=$count;$i++){
+                if(isset($_POST["itinerary".$i])){
+                    array_push($itinerary, $i);
+                }
+            }
             $dateOfDeparture = isset($_POST["date-of-departure"]) ? $_POST["date-of-departure"] : null;
         
             $target_dir = "../app/View/uploads/";
@@ -42,7 +49,8 @@ class addNewController {
                 if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {                    
                     $image = "uploads/" . $_FILES["image"]["name"];
                     $add = new addNew;
-                    $add->addNew($ship,$price,$image,$numOfNights,$portOfDeparture,$cruiseItinerary,$dateOfDeparture);
+                    $cruise = $add->addNew($ship,$price,$image,$numOfNights,$portOfDeparture,$cruiseItinerary,$dateOfDeparture);
+                    $add->addItinerary($itinerary,$cruise);
                     header("Location:cruises");
                 } else {
                     echo "<span style:'color: black;'>Sorry, there was an error uploading your file.</span><br>";

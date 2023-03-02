@@ -71,10 +71,15 @@
                             <?php } ?>
                         </select>
                     </div>
-                    <div class="row">
-                        <label class="log" style="color:rgb(10 82 189);">cruise itinerary</label>
-                        <input type="text" class="form-control" name="cruise-itinerary" value="<?php echo $row['cruise-itinerary'] ?>">
-                    </div>
+                    <!-- <label class="log" style="color:rgb(10 82 189);">cruise itinerary</label>
+                    <div class="my-4 d-flex flex-row">
+                    <?php
+                        // foreach($resultat6->fetch_all(MYSQLI_ASSOC) as $row6) {
+                    ?>
+                        <input type="checkbox" name="itinerary<?php // echo $row6['id']; ?>" class="btn-check" id="btn-check-<?php // echo $row6['id']; ?>-outlined">
+                        <label class="mr-3 btn btn-outline-primary" for="btn-check-<?php // echo $row6['id']; ?>-outlined"><?php // echo $row6['port']; ?></label><br>
+                    <?php //} ?>
+                    </div> -->
                     <div class="row">
                         <label class="log" style="color:rgb(10 82 189);">date-of-departure</label>
                         <input type="date" class="form-control" name="date-of-departure" value="<?php echo $row['date-of-departure'] ?>">

@@ -10,7 +10,24 @@ class edit {
         $test = new connection;
         $conn = $test->connection();
         $resultat = mysqli_query($conn,$sql);
-        return $resultat;
+        $sql = " SELECT LAST_INSERT_ID();";
+        $resultat = mysqli_query($conn,$sql);
+        $row = mysqli_fetch_assoc($resultat);
+        $res = $row['LAST_INSERT_ID()'];
+        return $res;
+    }
+    function editItinerary($itinerary,$cruise){
+        $test = new connection;
+        $conn = $test->connection();
+        $sql = "SELECT * FROM `itinarary` WHERE `cruise` = '$cruise' ;";
+        $resultat = mysqli_query($conn,$sql);
+        $i = 0;
+        while($row = mysqli_fetch_assoc($resultat)){
+            $r = $row['id'];
+            $sql = "UPDATE `itinarary` SET `port` = 1 WHERE id = $r ;";
+            $resultat = mysqli_query($conn,$sql);
+            $i++;
+        }
     }
     function editR($price,$dateOfReservation,$room,$ID){
         $sql ="UPDATE `reservation` SET `reservation-date`='$dateOfReservation',`reservation-price`='$price',`room`='$room' WHERE `id`= $ID";

@@ -98,7 +98,12 @@ class HomeController{
         }
         require("../app/Models/dh.php");
         $test = new dh;
+        $cruise = new cruise;
         $resultat = $test->dh($page);
+        if(isset($_POST['itinarary'])){
+            $id = $_POST['cruise'];
+            $resultat0=$cruise->list1($id);
+        }
         if(isset($_POST['search'])){
             $name = $_POST['search'];
             if($name===""){
@@ -165,6 +170,7 @@ class HomeController{
         $list = new edit;
         $resultat1=$list->list3();
         $resultat2=$list->list2();
+        $resultat6=$list->list2();
         require("../app/View/addNew.php");
         $test = new addNewController;
         $test->addNewController();
@@ -196,6 +202,7 @@ class HomeController{
         $resultat=$list->list($ID);
         $resultat1=$list->list1();
         $resultat2=$list->list2();
+        $resultat6=$list->list2();
         require("../app/View/editpage.php");
         $test = new editController;
         $test->editController($ID);
